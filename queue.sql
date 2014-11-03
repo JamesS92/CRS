@@ -1,4 +1,4 @@
-CREATE TABLE 'job' (
+CREATE TABLE 'queue' (
 	'id' int(10) unsigned NOT NULL AUTO_INCREMENT,
 	'name' varchar(512) NOT NULL,
 	'status_id' int(10) unsigned DEFAULT '1',
