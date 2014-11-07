@@ -1,0 +1,1456 @@
+==============================================================
+qname        feat.q              
+hostname     c2b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:34:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.236        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c6b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.232        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c4b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.236        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c3b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.228        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.236        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c6b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.232        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.236        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.240        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c2b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.236        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c2b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.240        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c4b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.248        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c3b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.248        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c2b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.248        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c6b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.244        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c4b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.240        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c3b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.232        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.236        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c6b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.240        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.320        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.504        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c2b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 1            
+cpu          0.748        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c2b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 1            
+cpu          1.024        
+mem          0.012             
+io           0.001             
+iow          0.000             
+maxvmem      26.180M
+==============================================================
+qname        feat.q              
+hostname     c4b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 1            
+cpu          1.276        
+mem          0.011             
+io           0.001             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c3b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 1            
+cpu          1.628        
+mem          0.011             
+io           0.001             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c2b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          2.100        
+mem          0.035             
+io           0.002             
+iow          0.000             
+maxvmem      26.176M
+==============================================================
+qname        feat.q              
+hostname     c6b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          2.652        
+mem          0.034             
+io           0.001             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c3b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          3.188        
+mem          0.058             
+io           0.002             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c6b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          3.636        
+mem          0.057             
+io           0.002             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c1b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          3.924        
+mem          0.079             
+io           0.003             
+iow          0.000             
+maxvmem      26.211M
+==============================================================
+qname        feat.q              
+hostname     c1b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.004        
+mem          0.080             
+io           0.003             
+iow          0.000             
+maxvmem      26.199M
+==============================================================
+qname        feat.q              
+hostname     c1b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.092        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.184M
+==============================================================
+qname        feat.q              
+hostname     c2b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.140        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.176M
+==============================================================
+qname        feat.q              
+hostname     c2b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.188        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c4b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.196        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c3b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.228        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c4b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          3.880        
+mem          0.079             
+io           0.004             
+iow          0.000             
+maxvmem      26.234M
+==============================================================
+qname        feat.q              
+hostname     c2b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.232        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c3b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.248        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c6b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.264        
+mem          0.081             
+io           0.002             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c4b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.248        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c1b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.184        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c1b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.204        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c1b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.172        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c2b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.120        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.164M
+==============================================================
+qname        feat.q              
+hostname     c2b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.132        
+mem          0.081             
+io           0.003             
+iow          0.000             
+maxvmem      26.176M
+==============================================================
+qname        feat.q              
+hostname     c4b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.096        
+mem          0.080             
+io           0.003             
+iow          0.000             
+maxvmem      26.180M
+==============================================================
+qname        feat.q              
+hostname     c3b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.036        
+mem          0.080             
+io           0.003             
+iow          0.000             
+maxvmem      26.191M
+==============================================================
+qname        feat.q              
+hostname     c2b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          4.028        
+mem          0.079             
+io           0.003             
+iow          0.000             
+maxvmem      26.191M
+==============================================================
+qname        feat.q              
+hostname     c4b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:35:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          3.900        
+mem          0.078             
+io           0.003             
+iow          0.000             
+maxvmem      26.211M
+==============================================================
+qname        feat.q              
+hostname     c1b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          3.520        
+mem          0.057             
+io           0.002             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c2b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          3.436        
+mem          0.057             
+io           0.002             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c2b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          3.316        
+mem          0.058             
+io           0.002             
+iow          0.000             
+maxvmem      25.852M
+==============================================================
+qname        feat.q              
+hostname     c4b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          3.244        
+mem          0.058             
+io           0.002             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c3b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          3.152        
+mem          0.058             
+io           0.002             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c2b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          3.048        
+mem          0.057             
+io           0.002             
+iow          0.000             
+maxvmem      26.184M
+==============================================================
+qname        feat.q              
+hostname     c4b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          2.908        
+mem          0.056             
+io           0.003             
+iow          0.000             
+maxvmem      26.215M
+==============================================================
+qname        feat.q              
+hostname     c3b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          3.880        
+mem          0.077             
+io           0.003             
+iow          0.000             
+maxvmem      26.207M
+==============================================================
+qname        feat.q              
+hostname     c6b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          3.808        
+mem          0.076             
+io           0.003             
+iow          0.000             
+maxvmem      26.211M
+==============================================================
+qname        feat.q              
+hostname     c4b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          3.924        
+mem          0.078             
+io           0.003             
+iow          0.000             
+maxvmem      26.188M
+==============================================================
+qname        feat.q              
+hostname     c1b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          3.696        
+mem          0.074             
+io           0.003             
+iow          0.000             
+maxvmem      26.227M
+==============================================================
+qname        feat.q              
+hostname     c1b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:14 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 4            
+cpu          3.620        
+mem          0.073             
+io           0.003             
+iow          0.000             
+maxvmem      26.230M
+==============================================================
+qname        feat.q              
+hostname     c2b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 1            
+cpu          1.352        
+mem          0.011             
+io           0.001             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c3b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 1            
+cpu          1.128        
+mem          0.012             
+io           0.001             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c4b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 1            
+cpu          0.976        
+mem          0.011             
+io           0.001             
+iow          0.000             
+maxvmem      26.199M
+==============================================================
+qname        feat.q              
+hostname     c6b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          2.620        
+mem          0.034             
+io           0.001             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c1b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          2.532        
+mem          0.034             
+io           0.001             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c4b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          2.380        
+mem          0.034             
+io           0.001             
+iow          0.000             
+maxvmem      23.727M
+==============================================================
+qname        feat.q              
+hostname     c1b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          2.216        
+mem          0.035             
+io           0.001             
+iow          0.000             
+maxvmem      26.172M
+==============================================================
+qname        feat.q              
+hostname     c1b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          2.044        
+mem          0.034             
+io           0.002             
+iow          0.000             
+maxvmem      26.184M
+==============================================================
+qname        feat.q              
+hostname     c2b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          1.920        
+mem          0.033             
+io           0.002             
+iow          0.000             
+maxvmem      26.203M
+==============================================================
+qname        feat.q              
+hostname     c2b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          1.756        
+mem          0.029             
+io           0.002             
+iow          0.000             
+maxvmem      26.215M
+==============================================================
+qname        feat.q              
+hostname     c4b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 2            
+cpu          1.568        
+mem          0.025             
+io           0.001             
+iow          0.000             
+maxvmem      26.211M
+==============================================================
+qname        feat.q              
+hostname     c3b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:29 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 3            
+cpu          2.812        
+mem          0.055             
+io           0.003             
+iow          0.000             
+maxvmem      26.238M
+==============================================================
+qname        feat.q              
+hostname     c3b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.516        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.272        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c4b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.236        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.228        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.228        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c2b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.232        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c2b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.232        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c4b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.232        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c2b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.232        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c3b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.228        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c4b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.236        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c6b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:44 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 1            
+cpu          0.780        
+mem          0.010             
+io           0.001             
+iow          0.000             
+maxvmem      26.242M
+==============================================================
+qname        feat.q              
+hostname     c1b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.240        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c6b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.240        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c4b3.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.232        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c1b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.240        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c6b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.232        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000
+==============================================================
+qname        feat.q              
+hostname     c3b2.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat3b_flame        
+priority     0                   
+qsub_time    Wed Sep 18 12:04:59 2013
+start_time   Wed Sep 18 12:36:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 0            
+cpu          0.228        
+mem          0.000             
+io           0.000             
+iow          0.000             
+maxvmem      0.000

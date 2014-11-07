@@ -1,0 +1,16 @@
+==============================================================
+qname        feat.q              
+hostname     c2b1.cubric.cf.ac.uk
+owner        sap5jw              
+jobname      feat5_stop          
+priority     0                   
+qsub_time    Wed Sep 18 12:05:00 2013
+start_time   Wed Sep 18 12:44:59 2013
+slots        1                   
+exit_status  0                   
+ru_wallclock 1            
+cpu          0.416        
+mem          0.000             
+io           0.001             
+iow          0.000             
+maxvmem      39.461M
