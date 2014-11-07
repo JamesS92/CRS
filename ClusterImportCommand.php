@@ -4,10 +4,11 @@ class ClusterImportCommand extends CConsoleCommand
 {
 	public $seperator = "=============================================================="; 
 	public $dataDir = "/cubric/users/sapwe/Sites/CRS/protected/commands/shell/data"; 
-	public $fileName = "989.txt";
-	public $jobNo = 0;
+	public $fileName = "3.txt";
+	
     public function run($args)
     {
+    	    date_default_timezone_set ( 'UTC' );
     	    $file = sprintf('%s/%s', $this->dataDir , $this->fileName); 
 	    $data = file_get_contents( $file );
 	    $job = array();
@@ -27,7 +28,7 @@ class ClusterImportCommand extends CConsoleCommand
 			
 			for ($x=0; $x < count($component); $x++)
 			{
-				$spliter = preg_split("/[\s,]+/", $component[$x]);
+				$spliter = preg_split("/[\s,]+/", $component[$x], 2);
 				$component[$x] = $spliter[1];
 			}
 			
@@ -35,23 +36,29 @@ class ClusterImportCommand extends CConsoleCommand
 			// this bit only happens once regardless of the size of the loop 
 			
 			if ($i==1)
-			{                                      
-			$job[$jobNo] = array(
+			{   
+				
+				$job[$jobNo] = array(
 					'qname'=>$component[1], 
-					'owner'=>$component[3],
-					'jobnumber'=>basename($directory[$j+2], '.txt'),
-					'jobname'=>$component[4], 
-					'starttime'=>10, 
-					'walltime'=>15,
+					'owner'=>$component[4],
+					'jobnumber'=>$component[8],
+					'jobname'=>$component[7],
+					'qsubtime'=>strtotime($component[12]),
+					'starttime'=>strtotime($component[13]),
+					'walltime'=>(strtotime($component[14])-strtotime($component[13])),
 					'hosts'=>array() 
 				);
 			
 			}
 			
 			$job[$jobNo]['hosts'][] = array('hostname'=>$component[2],
-						'cpu'=>$component[11],
-						'memory'=>$component[12],
-						'io'=>$component[13]
+						'slots'=>$component[16],
+						'exitstatus'=>$component[18],
+						'wallclock'=>$component[19],
+						'cpu'=>$component[37],
+						'memory'=>$component[28],
+						'io'=>$component[39],
+						'maxvmem'=>$component[41]
 						);  
 				 
 		}   	
