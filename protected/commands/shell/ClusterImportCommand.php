@@ -56,7 +56,7 @@ class ClusterImportCommand extends CConsoleCommand
 						'exitstatus'=>$component[18],
 						'wallclock'=>$component[19],
 						'cpu'=>$component[37],
-						'memory'=>$component[28],
+						'memory'=>$component[38],
 						'io'=>$component[39],
 						'maxvmem'=>$component[41]
 						);  
