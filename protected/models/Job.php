@@ -32,6 +32,14 @@ class Job extends XActiveRecord
 		return 'job';
 	}
 
+	
+	public function init()
+	{
+		/* custom stuff here */ 
+		
+		return parent::init(); 
+		
+	} 
 	/**
 	 * @return array validation rules for model attributes.
 	 */

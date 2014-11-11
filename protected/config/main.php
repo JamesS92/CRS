@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Cluster reporting system (CRS)',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -32,28 +32,34 @@ return array(
 
 	// application components
 	'components'=>array(
+		
+		'widgetFactory'=>array(
+		 	 	'widgets'=>include(dirname(__FILE__) . '/widgets.php')
+		 	 ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+		'helper' => array(
+                 	 'class' => 'application.components.Helper'
+                  ), 
 		// uncomment the following to enable URLs in path-format
-		
+		 'clientScript'=>include(dirname(__FILE__) . '/packages.php'), 
+		 
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+			'showScriptName'=>false,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		/*
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),*/
+		
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=crs',
+			'connectionString' => 'mysql:host=10.42.193.72;dbname=crs',
 			'emulatePrepare' => true,
 			'username' => 'crs',
 			'password' => 'crs',

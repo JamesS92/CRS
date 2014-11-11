@@ -9,6 +9,14 @@ to customize the framework without editing the framework itself.
 abstract class XActiveRecord  extends CActiveRecord
 {
 	
+	
+	public function init()
+	{
+		if ($this->isNewRecord)
+			$this->status_id = Types::$status['active']['id']; 
+		return parent::init(); 
+		
+	} 
 	public function beforeValidate()
 	{
 		
