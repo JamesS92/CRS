@@ -1,11 +1,10 @@
 CREATE TABLE `job` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`job_no` int(10) unsigned NOT NULL, 
-	`user_id` int(10) unsigned NOT NULL, 
+	`user_id` int(10) unsigned NOT NULL,
+	`queue_id` int (10) unsigned NOT NULL, 
 	`name` varchar(512) NOT NULL,
 	`sub_time` int (10) unsigned, 
-	`start`	 int (10) unsigned,
-	`wall_time` int (10) unsigned, 
 	`exit_code` int (10) unsigned, 
 	`status_id` int(10) unsigned DEFAULT 1,
 	`create_time` int(10) unsigned NOT NULL,

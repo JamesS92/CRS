@@ -24,19 +24,20 @@ class UserImportCommand extends CConsoleCommand
 	    	    if (isset($line[2]))
 	    	    	$surname = $line[2];
 	    	     
-	    	    
-	    	    	$user = User::model()->find('username=:username', array(':username'=>$username)); 
+	    	      
+	    	    	$user = User::model()->find('username=:username', array(':username'=>$username));
+	    	    	 
 	    	    	if ($user === null)
 	    	    	{
 	    	    		$user = new User; 
 	    	    		$user->username = $username; 
 	    	    		$user->firstname = $firstname;
-	    	    		$user->lastname = $surname; 
+	    	    		$user->lastname = $surname;
 	    	    		$user->save(); 
 	    	    		if ($user->hasErrors())
 	    	    			print_r($user->getErrors()); 
-	    	    			 
-	    	    	}
+	    	    	}; 
+	    	    	
 	    } 
     }
 }

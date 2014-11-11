@@ -7,10 +7,14 @@
  * @property string $id
  * @property string $job_id
  * @property string $machine_id
+ * @property string $start_time
+ * @property string $end_time
+ * @property string $wall_time
  * @property string $memory
  * @property string $cpu_time
  * @property string $io
  * @property string $slots
+ * @property string $maxvmem
  * @property string $status_id
  * @property string $create_time
  * @property string $create_usr_id
@@ -22,7 +26,7 @@
  * @property Job $job
  * @property RefMachine $machine
  */
-class Slot extends CActiveRecord
+class Slot extends XActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -41,10 +45,11 @@ class Slot extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('job_id, machine_id, create_time', 'required'),
-			array('job_id, machine_id, memory, cpu_time, io, slots, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
+			array('job_id, machine_id, start_time, end_time, wall_time, slots, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
+			array('memory, cpu_time, io, maxvmem', 'length', 'max'=>16),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, job_id, machine_id, memory, cpu_time, io, slots, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
+			array('id, job_id, machine_id, start_time, end_time, wall_time, memory, cpu_time, io, slots, maxvmem, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,10 +76,14 @@ class Slot extends CActiveRecord
 			'id' => 'ID',
 			'job_id' => 'Job',
 			'machine_id' => 'Machine',
+			'start_time' => 'Start Time',
+			'end_time' => 'End Time',
+			'wall_time' => 'Wall Time',
 			'memory' => 'Memory',
 			'cpu_time' => 'Cpu Time',
 			'io' => 'Io',
 			'slots' => 'Slots',
+			'maxvmem' => 'Maxvmem',
 			'status_id' => 'Status',
 			'create_time' => 'Create Time',
 			'create_usr_id' => 'Create Usr',
@@ -104,10 +113,14 @@ class Slot extends CActiveRecord
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('job_id',$this->job_id,true);
 		$criteria->compare('machine_id',$this->machine_id,true);
+		$criteria->compare('start_time',$this->start_time,true);
+		$criteria->compare('end_time',$this->end_time,true);
+		$criteria->compare('wall_time',$this->wall_time,true);
 		$criteria->compare('memory',$this->memory,true);
 		$criteria->compare('cpu_time',$this->cpu_time,true);
 		$criteria->compare('io',$this->io,true);
 		$criteria->compare('slots',$this->slots,true);
+		$criteria->compare('maxvmem',$this->maxvmem,true);
 		$criteria->compare('status_id',$this->status_id,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('create_usr_id',$this->create_usr_id,true);

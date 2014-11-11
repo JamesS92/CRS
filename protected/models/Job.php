@@ -5,11 +5,11 @@
  *
  * The followings are the available columns in table 'job':
  * @property string $id
+ * @property string $job_no
  * @property string $user_id
+ * @property string $queue_id
  * @property string $name
  * @property string $sub_time
- * @property string $start
- * @property string $wall_time
  * @property string $exit_code
  * @property string $status_id
  * @property string $create_time
@@ -22,7 +22,7 @@
  * @property User $user
  * @property Slot[] $slots
  */
-class Job extends CActiveRecord
+class Job extends XActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -40,12 +40,12 @@ class Job extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, name, create_time', 'required'),
-			array('user_id, sub_time, start, wall_time, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
+			array('job_no, user_id, queue_id, name, create_time', 'required'),
+			array('job_no, user_id, queue_id, sub_time, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
 			array('name', 'length', 'max'=>512),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, name, sub_time, start, wall_time, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
+			array('id, job_no, user_id, queue_id, name, sub_time, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,11 +70,11 @@ class Job extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'job_no' => 'Job No',
 			'user_id' => 'User',
+			'queue_id' => 'Queue',
 			'name' => 'Name',
 			'sub_time' => 'Sub Time',
-			'start' => 'Start',
-			'wall_time' => 'Wall Time',
 			'exit_code' => 'Exit Code',
 			'status_id' => 'Status',
 			'create_time' => 'Create Time',
@@ -103,11 +103,11 @@ class Job extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
+		$criteria->compare('job_no',$this->job_no,true);
 		$criteria->compare('user_id',$this->user_id,true);
+		$criteria->compare('queue_id',$this->queue_id,true);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('sub_time',$this->sub_time,true);
-		$criteria->compare('start',$this->start,true);
-		$criteria->compare('wall_time',$this->wall_time,true);
 		$criteria->compare('exit_code',$this->exit_code,true);
 		$criteria->compare('status_id',$this->status_id,true);
 		$criteria->compare('create_time',$this->create_time,true);

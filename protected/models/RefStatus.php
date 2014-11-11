@@ -22,7 +22,7 @@
  * @property Slot[] $slots
  * @property User[] $users
  */
-class RefStatus extends CActiveRecord
+class RefStatus extends XActiveRecord
 {
 	/**
 	 * @return string the associated database table name

@@ -16,7 +16,7 @@
  * The followings are the available model relations:
  * @property RefStatus $status
  */
-class RefQueue extends CActiveRecord
+class RefQueue extends XActiveRecord
 {
 	/**
 	 * @return string the associated database table name

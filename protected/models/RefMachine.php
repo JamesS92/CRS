@@ -17,7 +17,7 @@
  * @property RefStatus $status
  * @property Slot[] $slots
  */
-class RefMachine extends CActiveRecord
+class RefMachine extends XActiveRecord
 {
 	/**
 	 * @return string the associated database table name

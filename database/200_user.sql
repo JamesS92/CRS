@@ -3,7 +3,7 @@ CREATE TABLE `user` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`username` varchar(512) NOT NULL,
 	`firstname` varchar(512) NOT NULL,
-	`lastname` varchar(512) NOT NULL,
+	`lastname` varchar(512),
 	`email` varchar(128) DEFAULT NULL,
 	`status_id` int(10) unsigned DEFAULT 1,
 	`create_time` int(10) unsigned NOT NULL,
