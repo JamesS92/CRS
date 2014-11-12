@@ -59,7 +59,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=10.42.193.72;dbname=crs',
+			'connectionString' => 'mysql:host=localhost;dbname=crs',
 			'emulatePrepare' => true,
 			'username' => 'crs',
 			'password' => 'crs',

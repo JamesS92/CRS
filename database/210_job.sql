@@ -14,5 +14,6 @@ CREATE TABLE `job` (
          primary key (`id`), 
  	 KEY `fk_job_status_id` (`status_id`), 
 	CONSTRAINT `fk_job_status_id` FOREIGN KEY (`status_id`) REFERENCES `ref_status` (`id`), 
-	CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+	CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`), 
+	CONSTRAINT `fk_job_queue_id` FOREIGN KEY (`queue_id`) REFERENCES `ref_queue` (`id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8; 

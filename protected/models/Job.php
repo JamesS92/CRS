@@ -27,6 +27,10 @@ class Job extends XActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	 
+	public $auxUsername; 
+	public $auxQueuename; 
+	
 	public function tableName()
 	{
 		return 'job';
@@ -51,9 +55,10 @@ class Job extends XActiveRecord
 			array('job_no, user_id, queue_id, name, create_time', 'required'),
 			array('job_no, user_id, queue_id, sub_time, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
 			array('name', 'length', 'max'=>512),
+			array('auxUsername,auxQueuename','safe'), 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, job_no, user_id, queue_id, name, sub_time, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
+			array('id, job_no, auxUsername,auxQueuename,user_id, queue_id, name, sub_time, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +72,7 @@ class Job extends XActiveRecord
 		return array(
 			'status' => array(self::BELONGS_TO, 'RefStatus', 'status_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+			'queue' => array(self::BELONGS_TO, 'RefQueue', 'queue_id'),
 			'slots' => array(self::HAS_MANY, 'Slot', 'job_id'),
 		);
 	}
@@ -82,6 +88,7 @@ class Job extends XActiveRecord
 			'user_id' => 'User',
 			'queue_id' => 'Queue',
 			'name' => 'Name',
+			'auxUsername'=>'CUBRIC user', 
 			'sub_time' => 'Sub Time',
 			'exit_code' => 'Exit Code',
 			'status_id' => 'Status',
@@ -108,23 +115,50 @@ class Job extends XActiveRecord
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
-
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('job_no',$this->job_no,true);
-		$criteria->compare('user_id',$this->user_id,true);
-		$criteria->compare('queue_id',$this->queue_id,true);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('sub_time',$this->sub_time,true);
-		$criteria->compare('exit_code',$this->exit_code,true);
-		$criteria->compare('status_id',$this->status_id,true);
-		$criteria->compare('create_time',$this->create_time,true);
-		$criteria->compare('create_usr_id',$this->create_usr_id,true);
-		$criteria->compare('update_time',$this->update_time,true);
-		$criteria->compare('update_usr_id',$this->update_usr_id,true);
+		
+		
+		/*
+		$sort = new CSort;
+		$sort->attributes = array(
+			'*', 
+			'queue.name'=>array(
+				'asc'=>'queue.name',
+				'desc'=>'queue.name desc',
+			), 
+			'user.username'=>array(
+				'asc'=>'user.username',
+				'desc'=>'user.username desc',	
+				),
+			);
+		*/ 
+			$criteria=new CDbCriteria;
+			$criteria->with = array('user','queue');
+		$criteria->compare('t.id',$this->id,true);
+		$criteria->compare('queue.name',$this->auxQueuename,true);
+		$criteria->compare('user.username',$this->auxUsername,true);
+		$criteria->compare('t.job_no',$this->job_no,true);
+		$criteria->compare('t.user_id',$this->user_id,true);
+		$criteria->compare('t.queue_id',$this->queue_id,true);
+		$criteria->compare('t.name',$this->name,true);
+		$criteria->compare('t.sub_time',$this->sub_time,true);
+		$criteria->compare('t.exit_code',$this->exit_code,true);
+		$criteria->compare('t,status_id',$this->status_id,true);
+		$criteria->compare('t.create_time',$this->create_time,true);
+		$criteria->compare('t.create_usr_id',$this->create_usr_id,true);
+		$criteria->compare('t.update_time',$this->update_time,true);
+		$criteria->compare('t.update_usr_id',$this->update_usr_id,true);
+		
+		  return new CActiveDataProvider(get_class($this), array(
+                        'pagination'=>array(
+                                'pageSize'=> 100,
+                               // Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize'])
+                        ),
+                        'criteria'=>$criteria,
+                ));
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			 
 		));
 	}
 
@@ -137,5 +171,13 @@ class Job extends XActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+		
+		
+	}
+	
+	public function afterFind()
+	{
+		$this->sub_time = Yii::app()->dateFormatter->formatDateTime($this->sub_time,"medium","medium");
+		return parent::afterFind();
 	}
 }
