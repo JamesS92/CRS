@@ -3,13 +3,13 @@
 class ClusterImportCommand extends CConsoleCommand
 {
 	public $seperator = "=============================================================="; 
-	public $dataDir = "/cubric/users/sapwe/Sites/CRS/import/jobinfo/"; 
+	public $dataDir = "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1"; 
 	
 	
     public function run($args)
     {
-    	    
-    	    $this->initMachines(); 
+    	    $this->parseJobFile( $this->dataDir , '989.txt');
+    	    /*$this->initMachines(); 
     	    $dir = array_diff(scandir($this->dataDir), array('..', '.'));
     	    // print_r ($dir);
     	    
@@ -26,7 +26,7 @@ class ClusterImportCommand extends CConsoleCommand
     	    	 		if (filesize($thisDir .'/'. $chosenFile) > 0)
     	    	 		$this->parseJobFile( $thisDir , $chosenFile); 
     	    	 	}
-    	    	 }
+    	    	 }*/
     	    
     }
     
@@ -62,6 +62,8 @@ class ClusterImportCommand extends CConsoleCommand
     	    $file = sprintf('%s/%s', $dir , $file);
     	    $data = file_get_contents( $file );
 	    $job = array();
+	    $minTime = array();
+	    $maxTime = array();
 	    
 	    if ($data)
 		    $nodes= explode($this->seperator, $data);
@@ -119,13 +121,20 @@ class ClusterImportCommand extends CConsoleCommand
 						'io'=>str_replace(' ', '', $component[39]),
 						'maxvmem'=>$maxvmem 
 						);  
-				 
-		}   	
-		
+			echo $job['hosts'][$i]['starttime'];
+			$minTime[$i] = $job['hosts'][$i]['starttime'];
+			$maxTime[$i] = $job['hosts'][$i]['endtime'];	 
+		}
+		$job['min_time'] = min($minTime);
+		$job['max_time'] = max($maxTime);
+
 	    }
 	    //echo $job['jobnumber'];
-	    //print_r($job);
-	    return $this->processJob($job);
+	    print_r($job);
+	    	    print_r($minTime);
+
+	    return 0;
+	    //$this->processJob($job);
     
     } 
     /* ******************************************************************** */
