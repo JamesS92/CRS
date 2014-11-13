@@ -10,6 +10,15 @@
  * @property string $queue_id
  * @property string $name
  * @property string $sub_time
+ * @property string 	$min_time
+ * @property string 	$max_time
+ * @property string 	$duration
+ * @property string	$cpu_sum  	
+ * @property string	$memory_sum  	
+ * @property string	$io_sum  	
+ * @property string	$maxvmem_sum  	
+ * @property string	$failed_slot  	
+ * @property string	$node_count  	
  * @property string $exit_code
  * @property string $status_id
  * @property string $create_time
@@ -20,6 +29,7 @@
  * The followings are the available model relations:
  * @property RefStatus $status
  * @property User $user
+ * @property RefQueue $queue
  * @property Slot[] $slots
  */
 class Job extends XActiveRecord
@@ -53,12 +63,13 @@ class Job extends XActiveRecord
 		// will receive user inputs.
 		return array(
 			array('job_no, user_id, queue_id, name, create_time', 'required'),
-			array('job_no, user_id, queue_id, sub_time, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
+			array('job_no, user_id, queue_id, sub_time, min_time, max_time, duration, failed_slot, node_count, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
+			array('cpu_sum, memory_sum ,io_sum,maxvmem_sum', 'length', 'max'=>16),  
 			array('name', 'length', 'max'=>512),
 			array('auxUsername,auxQueuename','safe'), 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, job_no, auxUsername,auxQueuename,user_id, queue_id, name, sub_time, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
+			array('id, job_no, auxUsername, auxQueuename, user_id, queue_id, name, sub_time, min_time, max_time, duration, cpu_sum ,memory_sum ,io_sum ,maxvmem_sum,failed_slot ,node_count exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -90,6 +101,15 @@ class Job extends XActiveRecord
 			'name' => 'Name',
 			'auxUsername'=>'CUBRIC user', 
 			'sub_time' => 'Sub Time',
+			'min_time' => 'Start Time',
+			'max_time' => 'End Time',
+			'duration' => 'Duration',
+			'cpu_sum'  => 'CPU Sum ', 	
+			'memory_sum'  => 'Memory Sum',
+			'io_sum'  => 'IO Sum',
+			'maxvmem_sum'  => 'Maxvmem Sum',
+			'failed_slot'  => 'Failed Slot', 
+			'node_count'  => 'Node Count', 
 			'exit_code' => 'Exit Code',
 			'status_id' => 'Status',
 			'create_time' => 'Create Time',
@@ -141,6 +161,15 @@ class Job extends XActiveRecord
 		$criteria->compare('t.queue_id',$this->queue_id,true);
 		$criteria->compare('t.name',$this->name,true);
 		$criteria->compare('t.sub_time',$this->sub_time,true);
+		$criteria->compare('t.min_time',$this->min_time,true);
+		$criteria->compare('t.max_time',$this->max_time,true);
+		$criteria->compare('t.duration',$this->duration,true);
+		$criteria->compare('t.cpu_sum',$this->cpu_sum,true);  	
+		$criteria->compare('t.memory_sum',$this->memory_sum,true);
+		$criteria->compare('t.io_sum', $this->io_sum,true); 	
+		$criteria->compare('t.maxvmem_sum',$this->maxvmem_sum,true);
+		$criteria->compare('t.failed_slot', $this->failed_slot,true);
+		$criteria->compare('t.node_count', $this->node_count,true);
 		$criteria->compare('t.exit_code',$this->exit_code,true);
 		$criteria->compare('t,status_id',$this->status_id,true);
 		$criteria->compare('t.create_time',$this->create_time,true);
@@ -178,6 +207,10 @@ class Job extends XActiveRecord
 	public function afterFind()
 	{
 		$this->sub_time = Yii::app()->dateFormatter->formatDateTime($this->sub_time,"medium","medium");
+		$this->min_time = Yii::app()->dateFormatter->formatDateTime($this->min_time,"medium","medium");
+		$this->max_time = Yii::app()->dateFormatter->formatDateTime($this->max_time,"medium","medium");
 		return parent::afterFind();
+		
+		
 	}
 }

@@ -15,6 +15,7 @@
  * @property string $io
  * @property string $slots
  * @property string $maxvmem
+ * @property string $failed
  * @property string $status_id
  * @property string $create_time
  * @property string $create_usr_id
@@ -47,9 +48,10 @@ class Slot extends XActiveRecord
 			array('job_id, machine_id, create_time', 'required'),
 			array('job_id, machine_id, start_time, end_time, wall_time, slots, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
 			array('memory, cpu_time, io, maxvmem', 'length', 'max'=>16),
+			array('failed', 'length', 'max'=>512),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, job_id, machine_id, start_time, end_time, wall_time, memory, cpu_time, io, slots, maxvmem, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
+			array('id, job_id, machine_id, start_time, end_time, wall_time, memory, cpu_time, io, slots, maxvmem, failed, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,6 +86,7 @@ class Slot extends XActiveRecord
 			'io' => 'Io',
 			'slots' => 'Slots',
 			'maxvmem' => 'Maxvmem',
+			'failed' => 'Failed',
 			'status_id' => 'Status',
 			'create_time' => 'Create Time',
 			'create_usr_id' => 'Create Usr',
@@ -121,6 +124,7 @@ class Slot extends XActiveRecord
 		$criteria->compare('io',$this->io,true);
 		$criteria->compare('slots',$this->slots,true);
 		$criteria->compare('maxvmem',$this->maxvmem,true);
+		$criteria->compare('failed',$this->failed,true);
 		$criteria->compare('status_id',$this->status_id,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('create_usr_id',$this->create_usr_id,true);

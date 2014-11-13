@@ -12,6 +12,7 @@ CREATE TABLE `slot` (
 	`io` DECIMAL (16,3),
 	`slots` int (10) unsigned, 
 	`maxvmem` DECIMAL (16,3),
+	`failed` varchar(512),
 	`status_id` int(10) unsigned DEFAULT 1,
 	`create_time` int(10) unsigned NOT NULL,
 	`create_usr_id` int(10) unsigned DEFAULT NULL,

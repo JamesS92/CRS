@@ -3,13 +3,13 @@
 class ClusterImportCommand extends CConsoleCommand
 {
 	public $seperator = "=============================================================="; 
-	public $dataDir = "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1"; 
+	public $dataDir = "/cubric/users/sapwe/Sites/CRS/import/jobinfo/"; 
 	
 	
     public function run($args)
     {
-    	    $this->parseJobFile( $this->dataDir , '989.txt');
-    	    /*$this->initMachines(); 
+    	    //$this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1" , '637.txt');
+    	    $this->initMachines(); 
     	    $dir = array_diff(scandir($this->dataDir), array('..', '.'));
     	    // print_r ($dir);
     	    
@@ -26,7 +26,7 @@ class ClusterImportCommand extends CConsoleCommand
     	    	 		if (filesize($thisDir .'/'. $chosenFile) > 0)
     	    	 		$this->parseJobFile( $thisDir , $chosenFile); 
     	    	 	}
-    	    	 }*/
+    	    	 }
     	    
     }
     
@@ -62,9 +62,21 @@ class ClusterImportCommand extends CConsoleCommand
     	    $file = sprintf('%s/%s', $dir , $file);
     	    $data = file_get_contents( $file );
 	    $job = array();
-	    $minTime = array();
-	    $maxTime = array();
-	    
+	    $mintime = 0;
+	    $maxtime = 0;
+	    $duration = 0;
+	    $cpu = 0;
+	    $memory = 0;
+	    $io =  0;
+	    $failed = 0;
+	    $cpu_sum = 0;  	
+	    $memory_sum   = 0;
+	    $io_sum  	 = 0;
+	    $maxvmem_sum  = 0;
+	    $failed_slot   = 0;
+	    $node_count   = 0;
+	    $e = 0;
+	    $s = 0;
 	    if ($data)
 		    $nodes= explode($this->seperator, $data);
 	    
@@ -87,8 +99,13 @@ class ClusterImportCommand extends CConsoleCommand
 			// if you are on the first record then fill in the stuff that is not specific.
 			// this bit only happens once regardless of the size of the loop 
 			
+			$starttime = strtotime($component[13]);
+			$endtime = strtotime($component[14]);
+			
 			if ($i==1)
 			{   
+				
+				
 				
 				$job = array(
 					'qname'=>str_replace(' ', '', $component[1]), 
@@ -99,8 +116,22 @@ class ClusterImportCommand extends CConsoleCommand
 					'exitstatus'=>str_replace(' ', '', $component[18]),
 					'hosts'=>array() 
 				);
-			
+					
+
 			}
+			
+			if ($i > 0 && $starttime !== null && $starttime > 130000000 && $s == 0)
+			{
+				$mintime = $starttime;
+				$s = 1;
+			}
+			
+			if ($i > 0 && $endtime !== null && $endtime > 130000000 && $e == 0)
+			{
+				$maxtime = $endtime;
+				$e = 1;
+			}
+			
 			// parse the maxvmem value to strip the M or if G,strip the G and convert to M
 			if ( strpos($component[41] , 'G') !== false )
 			{
@@ -110,31 +141,65 @@ class ClusterImportCommand extends CConsoleCommand
 				$maxvmem = str_replace(' ', '', str_replace('M', '', $component[41]));
 			else 
 				$maxvmem = str_replace(' ', '' ,  $component[41]);
+				
+			$cpu = 	str_replace(' ', '', $component[37]);
+			$memory = str_replace(' ', '', $component[38]);
+			$io =   str_replace(' ', '', $component[39]);
+			$failed = $component[17];
+				
 			
 			$job['hosts'][] = array('hostname'=>str_replace(' ', '', $component[2]),
 						'slots'=>str_replace(' ', '', $component[16]),
-						'starttime'=>strtotime($component[13]),
-						'endtime'=>strtotime($component[14]),
+						'starttime'=>$starttime,
+						'endtime'=>$endtime,
 						'walltime'=>str_replace(' ', '', $component[19]),
-						'cpu'=>str_replace(' ', '', $component[37]),
-						'memory'=>str_replace(' ', '', $component[38]),
-						'io'=>str_replace(' ', '', $component[39]),
-						'maxvmem'=>$maxvmem 
+						'cpu'=>$cpu,
+						'memory'=>$memory,
+						'io'=>$io,
+						'maxvmem'=>$maxvmem,
+						'failed'=>$failed
 						);  
-			echo $job['hosts'][$i]['starttime'];
-			$minTime[$i] = $job['hosts'][$i]['starttime'];
-			$maxTime[$i] = $job['hosts'][$i]['endtime'];	 
+			
+			$cpu_sum += $cpu; 
+			$memory_sum += $memory;
+			$io_sum += $io;
+			$maxvmem_sum += $maxvmem;
+			
+			if ($i > 1 && $starttime < $mintime && $s == 1 && $starttime !== null)
+			$mintime = $starttime;
+			if ($i > 1 && $endtime > $mintime && $e ==1 && $endtime !== null)
+			$maxtime = $endtime;	 
 		}
-		$job['min_time'] = min($minTime);
-		$job['max_time'] = max($maxTime);
-
+		if ($failed > 0)
+			$failed_slot += 1;
+		
+		
 	    }
-	    //echo $job['jobnumber'];
-	    print_r($job);
-	    	    print_r($minTime);
+		$job['node_count'] = count($job['hosts']); 
+		
+		$job['cpu_sum'] = $cpu_sum;
+		$job['memory_sum'] = $memory_sum;
+		$job['io_sum'] = $io_sum;
+		$job['maxvmem_sum'] = $maxvmem_sum;
+		$job['failed_slot'] = $failed_slot;
 
-	    return 0;
-	    //$this->processJob($job);
+		
+		$job['min_time'] = $mintime;
+		if ($s == 0)
+			$job['min_time'] = 0;
+		
+		$job['max_time'] = $maxtime;
+		if ($e == 0)
+			$job['max_time'] = 0;
+		
+		
+		$duration = $maxtime - $mintime;
+		$job['duration'] = $duration;
+	    //echo $job['jobnumber'];
+	    	//print_r($job);
+	    	    
+	  // return 0;
+	    return $this->processJob($job);
     
     } 
     /* ******************************************************************** */
@@ -151,8 +216,20 @@ class ClusterImportCommand extends CConsoleCommand
     	    	    $jobModel->user_id = $this->getUserId($job['owner']); 
     	    	    $jobModel->name = $job['jobname'];
     	    	    $jobModel->sub_time = $job['qsubtime'];
+    	    	    $jobModel->min_time        = $job['min_time'];
+    	    	    $jobModel->max_time        = $job['max_time'];
+    	    	    $jobModel->duration        = $job['duration'];
+    	    	    $jobModel->cpu_sum		 = $job['cpu_sum'];
+    	    	    $jobModel->memory_sum      = $job['memory_sum'];
+    	    	    $jobModel->io_sum  	       = $job['io_sum'];
+    	    	    $jobModel->maxvmem_sum     = $job['maxvmem_sum'];
+    	    	    $jobModel->failed_slot      = $job['failed_slot'];
+    	    	    $jobModel->node_count      = $job['node_count'];
     	    	    $jobModel->exit_code = $job['exitstatus'];
-    	    	   // print_r($jobModel);
+    	    	    $jobModel->min_time = $job['min_time'];
+    	    	    $jobModel->max_time = $job['max_time'];
+    	    	    $jobModel->duration = $job['duration'];
+    	    	   // print_r($jobModel); 
     	    	    //$jobModel->save();
     	    	    
     	    	    if ($jobModel->save())
@@ -186,6 +263,7 @@ class ClusterImportCommand extends CConsoleCommand
     	    	    $slotModel->io = $slot['io'];
     	    	    $slotModel->slots = $slot['slots'];
     	    	    $slotModel->maxvmem = $slot['maxvmem'];
+    	    	    $slotModel->failed = $slot['failed'];
     	    	        	    //	    print_r($slotModel);
 
     	    	    $slotModel->save();
@@ -218,7 +296,13 @@ class ClusterImportCommand extends CConsoleCommand
     	    if ($userModel !== null)
     	    	    return $userModel->id;
     	    else 
-    	    	return 1; 
+    	    {
+    	    	$userModel = new User;
+    	    	    $userModel->username = $username;
+    	    	    $userModel->firstname = $username;
+    	    	    $userModel->save(); 
+    	    	    return $userModel->id;
+    	    }
     	    	
     	    
     }
@@ -228,6 +312,13 @@ class ClusterImportCommand extends CConsoleCommand
     	    $machineModel = RefMachine::model()->find('name=:hostname', array(':hostname'=>$machine)); 
     	    if ($machineModel !== null)
     	    	    return $machineModel->id; 
+    	     else 
+    	    {
+    	    	$machineModel = new RefMachine;
+    	    	    $machineModel->name = $machine; 
+    	    	    $machineModel->save(); 
+    	    	    return $machineModel->id;
+    	    }
     	    
     	    		
     } 
