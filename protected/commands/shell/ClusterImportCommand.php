@@ -8,7 +8,7 @@ class ClusterImportCommand extends CConsoleCommand
 	
     public function run($args)
     {
-    	   // $this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/125" , '124144.txt');
+    	   // $this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1" , '707.txt');
     	    $this->initMachines(); 
     	    $dir = array_diff(scandir($this->dataDir), array('..', '.'));
     	    // print_r ($dir);
@@ -196,7 +196,7 @@ class ClusterImportCommand extends CConsoleCommand
 		$duration = $maxtime - $mintime;
 		$job['duration'] = $duration;
 	    //echo $job['jobnumber'];
-	    //	print_r($job);
+	    	//print_r($job);
 	    	    
 	   //return 0;
 	   return $this->processJob($job);
@@ -249,7 +249,7 @@ class ClusterImportCommand extends CConsoleCommand
     private function processSlot($slot,$job_id, $jobno)
     {
     	    $machine_id = $this->processMachine($slot['hostname']);
-    	    $slotModel = Slot::model()->find('job_id=:job_id AND machine_id=:machine_id', array(':job_id'=>$job_id,':machine_id'=>$machine_id)); 
+    	    $slotModel = Slot::model()->find('job_id=:job_id', array(':job_id'=>$job_id)); 
     	    if ($slotModel === null)
     	    {
     	    	    $slotModel = new Slot; 

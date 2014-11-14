@@ -10,7 +10,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'updateSelector'=>'custom-page-selector', //update selector
     //'selectionChanged'=>'js:$.app.page.selectUser();', 
     'columns' => array(
-        //array('name'=>'auxJobNo',  'value'=>'$data->job->job_no'),
+        array('name'=>'auxJobNo',  'value'=>'$data->job->job_no'),
         array('name'=>'auxMachineName',  'value'=>'$data->machine->name'),
         'start_time',
         'wall_time',
