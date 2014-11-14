@@ -32,6 +32,10 @@ class Slot extends XActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	 
+	public $auxJobNo; 
+	public $auxMachineName; 	 
+	 
 	public function tableName()
 	{
 		return 'slot';
@@ -49,9 +53,10 @@ class Slot extends XActiveRecord
 			array('job_id, machine_id, start_time, end_time, wall_time, slots, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
 			array('memory, cpu_time, io, maxvmem', 'length', 'max'=>16),
 			array('failed', 'length', 'max'=>512),
+			array('auxJobNo,auxMachineName','safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, job_id, machine_id, start_time, end_time, wall_time, memory, cpu_time, io, slots, maxvmem, failed, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
+			array('id, job_id,auxJobNo,auxMachineName, machine_id, start_time, end_time, wall_time, memory, cpu_time, io, slots, maxvmem, failed, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,7 +82,9 @@ class Slot extends XActiveRecord
 		return array(
 			'id' => 'ID',
 			'job_id' => 'Job',
+			'auxJobNo'=> 'Job No',
 			'machine_id' => 'Machine',
+			'auxMachineName'=> ' Machine Name',
 			'start_time' => 'Start Time',
 			'end_time' => 'End Time',
 			'wall_time' => 'Wall Time',
@@ -112,28 +119,39 @@ class Slot extends XActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
+		$pageno=explode('=',Yii::app()->request->getRequestUri());
+		$this->job_id = $pageno;
+		
+		
+		$criteria->compare('t.id',$this->id,true);
+		$criteria->compare('t.job_id',$this->job_id,false);
+		$criteria->compare('t.machine_id',$this->machine_id,true);
+		$criteria->compare('machine.name',$this->auxMachineName,true);
+		$criteria->compare('job.job_no',$this->auxJobNo,true);
+		$criteria->compare('t.start_time',$this->start_time,true);
+		$criteria->compare('t.end_time',$this->end_time,true);
+		$criteria->compare('t.wall_time',$this->wall_time,true);
+		$criteria->compare('t.memory',$this->memory,true);
+		$criteria->compare('t.cpu_time',$this->cpu_time,true);
+		$criteria->compare('t.io',$this->io,true);
+		$criteria->compare('t.slots',$this->slots,true);
+		$criteria->compare('t.maxvmem',$this->maxvmem,true);
+		$criteria->compare('t.failed',$this->failed,true);
+		$criteria->compare('t.status_id',$this->status_id,true);
+		$criteria->compare('t.create_time',$this->create_time,true);
+		$criteria->compare('t.create_usr_id',$this->create_usr_id,true);
+		$criteria->compare('t.update_time',$this->update_time,true);
+		$criteria->compare('t.update_usr_id',$this->update_usr_id,true);
+		
+		return new CActiveDataProvider(get_class($this), array(
+                        'pagination'=>array(
+                                'pageSize'=> 100,
+                               // Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize'])
+                        ),
+                        'criteria'=>$criteria,
+                ));
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('job_id',$this->job_id,true);
-		$criteria->compare('machine_id',$this->machine_id,true);
-		$criteria->compare('start_time',$this->start_time,true);
-		$criteria->compare('end_time',$this->end_time,true);
-		$criteria->compare('wall_time',$this->wall_time,true);
-		$criteria->compare('memory',$this->memory,true);
-		$criteria->compare('cpu_time',$this->cpu_time,true);
-		$criteria->compare('io',$this->io,true);
-		$criteria->compare('slots',$this->slots,true);
-		$criteria->compare('maxvmem',$this->maxvmem,true);
-		$criteria->compare('failed',$this->failed,true);
-		$criteria->compare('status_id',$this->status_id,true);
-		$criteria->compare('create_time',$this->create_time,true);
-		$criteria->compare('create_usr_id',$this->create_usr_id,true);
-		$criteria->compare('update_time',$this->update_time,true);
-		$criteria->compare('update_usr_id',$this->update_usr_id,true);
-
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
+		
 	}
 
 	/**
@@ -145,5 +163,14 @@ class Slot extends XActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	public function afterFind()
+	{
+		$this->start_time = Yii::app()->dateFormatter->formatDateTime($this->start_time,"medium","medium");
+		$this->end_time = Yii::app()->dateFormatter->formatDateTime($this->end_time,"medium","medium");
+		return parent::afterFind();
+		
+		
 	}
 }

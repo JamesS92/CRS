@@ -136,6 +136,8 @@ class Job extends XActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		
+			
+			
 		
 		/*
 		$sort = new CSort;
@@ -163,13 +165,13 @@ class Job extends XActiveRecord
 		$criteria->compare('t.sub_time',$this->sub_time,true);
 		$criteria->compare('t.min_time',$this->min_time,true);
 		$criteria->compare('t.max_time',$this->max_time,true);
-		$criteria->compare('t.duration',$this->duration,true);
+		$criteria->compare('t.duration',$this->duration,false);
 		$criteria->compare('t.cpu_sum',$this->cpu_sum,true);  	
 		$criteria->compare('t.memory_sum',$this->memory_sum,true);
 		$criteria->compare('t.io_sum', $this->io_sum,true); 	
 		$criteria->compare('t.maxvmem_sum',$this->maxvmem_sum,true);
-		$criteria->compare('t.failed_slot', $this->failed_slot,true);
-		$criteria->compare('t.node_count', $this->node_count,true);
+		$criteria->compare('t.failed_slot', $this->failed_slot,false);
+		$criteria->compare('t.node_count', $this->node_count,false);
 		$criteria->compare('t.exit_code',$this->exit_code,true);
 		$criteria->compare('t,status_id',$this->status_id,true);
 		$criteria->compare('t.create_time',$this->create_time,true);
@@ -185,10 +187,7 @@ class Job extends XActiveRecord
                         'criteria'=>$criteria,
                 ));
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-			 
-		));
+		
 	}
 
 	/**

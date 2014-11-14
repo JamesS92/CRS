@@ -11,7 +11,7 @@ class ReportController extends XController
     	    
 		return array(
         		 array('allow',  // allow all users to perform 'index' and 'view' actions
-        		 	 'actions'=>array('user', 'job'),
+        		 	 'actions'=>array('user', 'job', 'slot'),
         		 	 'users'=>array('*'),
         		 ),
         		array('deny', 'users' => array('*')),
@@ -57,5 +57,25 @@ class ReportController extends XController
 		 
 	}
 		/* ******************************************************* */
-
+	
+		public function actionSlot()
+	{
+		
+		
+		$slotModel = new Slot('search');
+		$slotModel->unsetAttributes();  // clear any default values
+		if (isset($_GET['Slot'])) {
+			$slotModel->attributes = $_GET['Slot'];
+		}
+		
+		$this->render('slot', array(
+			'slotModel' => $slotModel,
+		));
+		 if (isset($_GET['pageSize'])) {
+                    Yii::app()->user->setState('pageSize',(int)$_GET['pageSize']);
+                    unset($_GET['pageSize']);
+                }
+		 
+	}
+		/* ******************************************************* */
 }

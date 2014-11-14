@@ -10,10 +10,21 @@
         </div> 
         <div id="navbar" class="collapse navbar-collapse"> 
           <ul class="nav navbar-nav"> 
-            <li class="active"><a href="/report/user">User Report</a></li> 
-            <li><a href="#about">About</a></li> 
-            <li><a href="#contact">Contact</a></li> 
+            <li <?php test("user") ?>><a href="/report/user">User Report</a></li> 
+            <li <?php test("job") ?>><a href="/report/job">Job Reports</a></li> 
+            <li <?php test("about") ?>><a href="#about">About</a></li> 
+            <li <?php test("contact") ?>><a href="#contact">Contact</a></li> 
           </ul> 
         </div><!--/.nav-collapse --> 
       </div> 
     </nav> 
+    
+    <?php
+function test($requestUri)
+{
+    $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
+
+    if ($current_file_name == $requestUri)
+        echo 'class="active"';
+}
+?>

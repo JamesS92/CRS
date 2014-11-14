@@ -8,7 +8,7 @@ class ClusterImportCommand extends CConsoleCommand
 	
     public function run($args)
     {
-    	    //$this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1" , '637.txt');
+    	   // $this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/125" , '124144.txt');
     	    $this->initMachines(); 
     	    $dir = array_diff(scandir($this->dataDir), array('..', '.'));
     	    // print_r ($dir);
@@ -165,9 +165,9 @@ class ClusterImportCommand extends CConsoleCommand
 			$io_sum += $io;
 			$maxvmem_sum += $maxvmem;
 			
-			if ($i > 1 && $starttime < $mintime && $s == 1 && $starttime !== null)
+			if ($i > 1 && $starttime < $mintime && $s == 1 && $starttime !== null && $starttime > 130000000)
 			$mintime = $starttime;
-			if ($i > 1 && $endtime > $mintime && $e ==1 && $endtime !== null)
+			if ($i > 1 && $endtime > $mintime && $e ==1 && $endtime !== null && $endtime > 130000000)
 			$maxtime = $endtime;	 
 		}
 		if ($failed > 0)
@@ -196,10 +196,10 @@ class ClusterImportCommand extends CConsoleCommand
 		$duration = $maxtime - $mintime;
 		$job['duration'] = $duration;
 	    //echo $job['jobnumber'];
-	    	//print_r($job);
+	    //	print_r($job);
 	    	    
-	  // return 0;
-	    return $this->processJob($job);
+	   //return 0;
+	   return $this->processJob($job);
     
     } 
     /* ******************************************************************** */
