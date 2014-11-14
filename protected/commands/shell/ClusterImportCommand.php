@@ -8,7 +8,7 @@ class ClusterImportCommand extends CConsoleCommand
 	
     public function run($args)
     {
-    	   // $this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1" , '707.txt');
+    	    //$this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1" , '707.txt');
     	    $this->initMachines(); 
     	    $dir = array_diff(scandir($this->dataDir), array('..', '.'));
     	    // print_r ($dir);
@@ -150,6 +150,7 @@ class ClusterImportCommand extends CConsoleCommand
 			
 			$job['hosts'][] = array('hostname'=>str_replace(' ', '', $component[2]),
 						'slots'=>str_replace(' ', '', $component[16]),
+						'slot_order'=>$i,
 						'starttime'=>$starttime,
 						'endtime'=>$endtime,
 						'walltime'=>str_replace(' ', '', $component[19]),
@@ -249,12 +250,13 @@ class ClusterImportCommand extends CConsoleCommand
     private function processSlot($slot,$job_id, $jobno)
     {
     	    $machine_id = $this->processMachine($slot['hostname']);
-    	    $slotModel = Slot::model()->find('job_id=:job_id', array(':job_id'=>$job_id)); 
+    	    $slotModel = Slot::model()->find('job_id=:job_id AND machine_id=:machine_id AND slot_order=:slot_order', array(':job_id'=>$job_id,':machine_id'=>$machine_id,':slot_order'=>$slot['slot_order'])); 
     	    if ($slotModel === null)
     	    {
     	    	    $slotModel = new Slot; 
     	    	    $slotModel->job_id = $job_id;
     	    	    $slotModel->machine_id = $machine_id;
+    	    	    $slotModel->slot_order = $slot['slot_order'];
     	    	    $slotModel->start_time = $slot['starttime'];
     	    	    $slotModel->end_time = $slot['endtime'];
     	    	    $slotModel->wall_time = $slot['walltime'];

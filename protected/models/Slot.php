@@ -7,6 +7,7 @@
  * @property string $id
  * @property string $job_id
  * @property string $machine_id
+ * @property string $slot_order
  * @property string $start_time
  * @property string $end_time
  * @property string $wall_time
@@ -49,14 +50,14 @@ class Slot extends XActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('job_id, machine_id, create_time', 'required'),
-			array('job_id, machine_id, start_time, end_time, wall_time, slots, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
+			array('job_id, machine_id, slot_order, create_time', 'required'),
+			array('job_id, machine_id, slot_order, start_time, end_time, wall_time, slots, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
 			array('memory, cpu_time, io, maxvmem', 'length', 'max'=>16),
 			array('failed', 'length', 'max'=>512),
 			array('auxJobNo,auxMachineName','safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, job_id,auxJobNo,auxMachineName, machine_id, start_time, end_time, wall_time, memory, cpu_time, io, slots, maxvmem, failed, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
+			array('id, job_id,auxJobNo,auxMachineName, machine_id, slot_order, start_time, end_time, wall_time, memory, cpu_time, io, slots, maxvmem, failed, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -85,6 +86,7 @@ class Slot extends XActiveRecord
 			'auxJobNo'=> 'Job No',
 			'machine_id' => 'Machine',
 			'auxMachineName'=> ' Machine Name',
+			'slot_order' => 'Slot Order',
 			'start_time' => 'Start Time',
 			'end_time' => 'End Time',
 			'wall_time' => 'Wall Time',
