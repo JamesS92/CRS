@@ -11,7 +11,7 @@ class ReportController extends XController
     	    
 		return array(
         		 array('allow',  // allow all users to perform 'index' and 'view' actions
-        		 	 'actions'=>array('user', 'job', 'slot'),
+        		 	 'actions'=>array('user', 'job', 'slot', 'jobreport'),
         		 	 'users'=>array('*'),
         		 ),
         		array('deny', 'users' => array('*')),
@@ -78,4 +78,21 @@ class ReportController extends XController
 		 
 	}
 		/* ******************************************************* */
+		
+		public function actionJobReport()
+	{
+		$jobModel = new Job('search');
+		$jobModel->unsetAttributes();  // clear any default values
+		if (isset($_GET['Job'])) {
+			$jobModel->attributes = $_GET['Job'];
+		}
+		
+		$this->render('jobreport', array(
+			'jobModel' => $jobModel,
+		));
+		 if (isset($_GET['pageSize'])) {
+                    Yii::app()->user->setState('pageSize',(int)$_GET['pageSize']);
+                    unset($_GET['pageSize']);
+                }
+	}
 }

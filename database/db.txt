@@ -83,6 +83,7 @@ CREATE TABLE `job` (
 	`sub_time` int (10) unsigned, 
 	`min_time` int (10) unsigned,
 	`max_time` int (10) unsigned,
+	`wait_time` int(10) unsigned,
 	`duration` int (10) unsigned,
 	`cpu_sum`  	DECIMAL (16,3),
 	`memory_sum`  	DECIMAL (16,3),

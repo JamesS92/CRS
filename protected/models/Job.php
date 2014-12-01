@@ -12,6 +12,7 @@
  * @property string $sub_time
  * @property string 	$min_time
  * @property string 	$max_time
+ * @property string	$wait_time
  * @property string 	$duration
  * @property string	$cpu_sum  	
  * @property string	$memory_sum  	
@@ -63,13 +64,13 @@ class Job extends XActiveRecord
 		// will receive user inputs.
 		return array(
 			array('job_no, user_id, queue_id, name, create_time', 'required'),
-			array('job_no, user_id, queue_id, sub_time, min_time, max_time, duration, failed_slot, node_count, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
+			array('job_no, user_id, queue_id, sub_time, min_time, max_time, wait_time, duration, failed_slot, node_count, exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
 			array('cpu_sum, memory_sum ,io_sum,maxvmem_sum', 'length', 'max'=>16),  
 			array('name', 'length', 'max'=>512),
 			array('auxUsername,auxQueuename','safe'), 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, job_no, auxUsername, auxQueuename, user_id, queue_id, name, sub_time, min_time, max_time, duration, cpu_sum ,memory_sum ,io_sum ,maxvmem_sum,failed_slot ,node_count exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
+			array('id, job_no, auxUsername, auxQueuename, user_id, queue_id, name, sub_time, min_time, max_time, wait_time, duration, cpu_sum ,memory_sum ,io_sum ,maxvmem_sum,failed_slot ,node_count exit_code, status_id, create_time, create_usr_id, update_time, update_usr_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -103,6 +104,7 @@ class Job extends XActiveRecord
 			'sub_time' => 'Sub Time',
 			'min_time' => 'Start Time',
 			'max_time' => 'End Time',
+			'wait_time' => 'Wait Time',
 			'duration' => 'Duration',
 			'cpu_sum'  => 'CPU Sum ', 	
 			'memory_sum'  => 'Memory Sum',
@@ -165,6 +167,7 @@ class Job extends XActiveRecord
 		$criteria->compare('t.sub_time',$this->sub_time,true);
 		$criteria->compare('t.min_time',$this->min_time,true);
 		$criteria->compare('t.max_time',$this->max_time,true);
+		$criteria->compare('t.wait_time',$this->wait_time,true);
 		$criteria->compare('t.duration',$this->duration,false);
 		$criteria->compare('t.cpu_sum',$this->cpu_sum,true);  	
 		$criteria->compare('t.memory_sum',$this->memory_sum,true);

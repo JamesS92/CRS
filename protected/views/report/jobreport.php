@@ -18,7 +18,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array('name'=>'auxQueuename',  'value'=>'$data->queue->name'),
         'sub_time',
         'min_time',
-        'wait_time',
         'duration',
         'node_count',
         'failed_slot',
@@ -28,10 +27,3 @@ $this->widget('zii.widgets.grid.CGridView', array(
 ));
 
 
-/*echo CHtml::dropDownList('user','',
-	CHtml::listData(User::model()->findAll('status_id=:active',array(':active'=>Types::$status['active']['id'])) 
-				,'id', 'username' ) , 
-		array('id'=>'user-select','onchange'=>'js:$.app.page.nameChange();')
-	); 
-  
-*/

@@ -8,10 +8,10 @@ class ClusterImportCommand extends CConsoleCommand
 	
     public function run($args)
     {
-    	    //$this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1" , '707.txt');
+    	   // $this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1" , '707.txt');
     	    $this->initMachines(); 
     	    $dir = array_diff(scandir($this->dataDir), array('..', '.'));
-    	    // print_r ($dir);
+    	     print_r ($dir);
     	    
     	  	 foreach ($dir as $currentDir)
     	  	 {
@@ -62,6 +62,7 @@ class ClusterImportCommand extends CConsoleCommand
     	    $file = sprintf('%s/%s', $dir , $file);
     	    $data = file_get_contents( $file );
 	    $job = array();
+	    $qtime = 0;
 	    $mintime = 0;
 	    $maxtime = 0;
 	    $duration = 0;
@@ -105,14 +106,14 @@ class ClusterImportCommand extends CConsoleCommand
 			if ($i==1)
 			{   
 				
-				
+				$qtime = strtotime($component[12]);      
 				
 				$job = array(
 					'qname'=>str_replace(' ', '', $component[1]), 
 					'owner'=>str_replace(' ', '', $component[4]),
 					'jobnumber'=>str_replace(' ', '', $component[8]),
 					'jobname'=>str_replace(' ', '', $component[7]),
-					'qsubtime'=>strtotime($component[12]),
+					'qsubtime'=>$qtime,
 					'exitstatus'=>str_replace(' ', '', $component[18]),
 					'hosts'=>array() 
 				);
@@ -193,13 +194,14 @@ class ClusterImportCommand extends CConsoleCommand
 		if ($e == 0)
 			$job['max_time'] = 0;
 		
-		
+		$wait = $mintime - $qtime;
+		$job['wait_time'] = $wait;
 		$duration = $maxtime - $mintime;
 		$job['duration'] = $duration;
 	    //echo $job['jobnumber'];
 	    	//print_r($job);
 	    	    
-	   //return 0;
+	 //  return 0;
 	   return $this->processJob($job);
     
     } 
@@ -219,6 +221,7 @@ class ClusterImportCommand extends CConsoleCommand
     	    	    $jobModel->sub_time = $job['qsubtime'];
     	    	    $jobModel->min_time        = $job['min_time'];
     	    	    $jobModel->max_time        = $job['max_time'];
+    	    	    $jobModel->wait_time        = $job['wait_time'];
     	    	    $jobModel->duration        = $job['duration'];
     	    	    $jobModel->cpu_sum		 = $job['cpu_sum'];
     	    	    $jobModel->memory_sum      = $job['memory_sum'];
