@@ -21,6 +21,7 @@ class ReportHelper extends CComponent
 						':username'=>$username,
 						) ) 
 			->queryAll(); 
+			// ->queryRow();  if you are only want to pull out one row recordset  
 			return $dataReader ;  
 		
 	} 
