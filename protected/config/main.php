@@ -85,6 +85,9 @@ return array(
 				*/
 			),
 		),
+		'jobReport'=>array(
+			'class' => 'application.components.JobReport',
+			)
 	),
 
 	// application-level parameters that can be accessed

@@ -5,7 +5,7 @@ abstract class ReportClass extends CComponent
 		
 		protected function normalise($min,$max)
 		{
-			* = (* - $min)/($max - $min); 
+			//* = (* - $min)/($max - $min); 
 		}
 
 	} 

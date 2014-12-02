@@ -192,6 +192,56 @@ class Job extends XActiveRecord
 
 		
 	}
+	public function searchJobNormal($startTime, $endTime, $qname)
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		
+			
+			
+		
+			$criteria=new CDbCriteria;
+			$criteria->with = array('user','queue');
+			
+			$startTime = ">=$startTime";
+			$endTime = "<$endTime";
+			
+			
+		$criteria->compare('t.id',$this->id,true);
+		$criteria->compare('queue.name',$qname,false);
+		$criteria->compare('user.username',$this->auxUsername,true);
+		$criteria->compare('t.job_no',$this->job_no,true);
+		$criteria->compare('t.user_id',$this->user_id,true);
+		$criteria->compare('t.queue_id',$this->queue_id,true);
+		$criteria->compare('t.name',$this->name,true);
+		$criteria->compare('t.sub_time',$this->sub_time,true);
+		$criteria->compare('t.min_time',$startTime,true);
+		$criteria->compare('t.max_time',$endTime,true);
+		$criteria->compare('t.wait_time',$this->wait_time,true);
+		$criteria->compare('t.duration',$this->duration,false);
+		$criteria->compare('t.cpu_sum',$this->cpu_sum,true);  	
+		$criteria->compare('t.memory_sum',$this->memory_sum,true);
+		$criteria->compare('t.io_sum', $this->io_sum,true); 	
+		$criteria->compare('t.maxvmem_sum',$this->maxvmem_sum,true);
+		$criteria->compare('t.failed_slot', $this->failed_slot,false);
+		$criteria->compare('t.node_count', $this->node_count,false);
+		$criteria->compare('t.exit_code',$this->exit_code,true);
+		$criteria->compare('t,status_id',$this->status_id,true);
+		$criteria->compare('t.create_time',$this->create_time,true);
+		$criteria->compare('t.create_usr_id',$this->create_usr_id,true);
+		$criteria->compare('t.update_time',$this->update_time,true);
+		$criteria->compare('t.update_usr_id',$this->update_usr_id,true);
+		
+		  return new CActiveDataProvider(get_class($this), array(
+                        'pagination'=>array(
+                                'pageSize'=> 100,
+                               // Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize'])
+                        ),
+                        'criteria'=>$criteria,
+                ));
+
+		
+	}
 
 	/**
 	 * Returns the static model of the specified AR class.

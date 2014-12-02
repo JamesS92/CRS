@@ -121,9 +121,10 @@ class Slot extends XActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
+		if(strpos(Yii::app()->request->getRequestUri(),"=")!=false){
 		$pageno=explode('=',Yii::app()->request->getRequestUri());
 		$this->job_id = $pageno;
-		
+		}
 		
 		$criteria->compare('t.id',$this->id,true);
 		$criteria->compare('t.job_id',$this->job_id,false);

@@ -1,9 +1,9 @@
 <?php 
 
-class JobReportClass extends ReportClass
+abstract class JobReportClass extends ReportClass
 {
 	
-	private function minCPUTime($beginTime, $endTime, $qName){
+	/*private function minCPUTime($beginTime, $endTime, $qName){
 		
 		
 		$CPUtime = Yii::app()->db->createCommand()
@@ -21,8 +21,9 @@ class JobReportClass extends ReportClass
 
 			->queryRow(); 
 			
+			$minCPU = $CPUtime[cpu_sum];
 			
-			return array ($minCPU) ; 
+			return ($minCPU) ; 
 	}
 	private function maxCPUTime($beginTime, $endTime, $qName){
 		
@@ -41,8 +42,9 @@ class JobReportClass extends ReportClass
 			->order('j.cpu_sum DESC')
 			->queryRow(); 
 			
+			$maxCPU = $CPUtime[cpu_sum];
 			
-			return array ($maxCPU) ; 
+			return ($maxCPU) ; 
 	}
-		
+		*/
 }

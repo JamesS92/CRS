@@ -11,7 +11,7 @@ class ReportController extends XController
     	    
 		return array(
         		 array('allow',  // allow all users to perform 'index' and 'view' actions
-        		 	 'actions'=>array('user', 'job', 'slot', 'jobreport'),
+        		 	 'actions'=>array('user', 'job', 'slot', 'jobreport', 'jobreportmenu'),
         		 	 'users'=>array('*'),
         		 ),
         		array('deny', 'users' => array('*')),
@@ -94,5 +94,20 @@ class ReportController extends XController
                     Yii::app()->user->setState('pageSize',(int)$_GET['pageSize']);
                     unset($_GET['pageSize']);
                 }
+                }
+                
+                /* ******************************************************* */
+		
+		public function actionJobReportMenu()
+	{
+		$model = array();
+		$this->render('JobReportMenu');
+		if(isset($_POST['jobreportmenu']))
+		{
+			$model->attributes=$_POST['jobreportmenu'];
+			// validate user input and redirect to the previous page if valid
+			if($model->validate() && $model->login())
+				$this->redirect(Yii::app()->urlManager->createUrl('report/jobreport', array(10,10)));
+		}
 	}
 }
