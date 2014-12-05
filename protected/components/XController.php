@@ -54,7 +54,11 @@ abstract class XController extends CController {
 		return $this->_ajaxResponse; 
 	}
 	/* ******************************************************* */
-	
+	public function setAjaxResponse($name,$value)
+	{
+		if ($this->_ajaxResponse->hasProperty($name))
+			$this->_ajaxResponse->add($name,$value);
+	} 
 	/* ******************************************************* */
 	public function accessRules()
 	{

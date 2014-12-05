@@ -24,6 +24,7 @@ class User extends XActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	 public $usersearch;
 	public function tableName()
 	{
 		return 'user';
@@ -40,6 +41,7 @@ class User extends XActiveRecord
 			array('username, firstname, create_time', 'required'),
 			array('username, firstname, lastname', 'length', 'max'=>512),
 			array('email', 'length', 'max'=>128),
+			array('usersearch', 'safe', 'on'=>'search'),
 			array('status_id, create_time, create_usr_id, update_time, update_usr_id', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -107,6 +109,7 @@ class User extends XActiveRecord
 		$criteria->compare('create_usr_id',$this->create_usr_id,true);
 		$criteria->compare('update_time',$this->update_time,true);
 		$criteria->compare('update_usr_id',$this->update_usr_id,true);
+		
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -123,4 +126,14 @@ class User extends XActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function usersearch()
+	{
+		$criteria=new CDbCriteria;
+			$criteria->compare('id', $this->usersearch, true );
+			return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+			));
+	}
+
 }

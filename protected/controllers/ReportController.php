@@ -11,7 +11,11 @@ class ReportController extends XController
     	    
 		return array(
         		 array('allow',  // allow all users to perform 'index' and 'view' actions
-        		 	 'actions'=>array('user', 'job', 'slot', 'jobreport', 'jobreportmenu'),
+        		 	 'actions'=>array('user', 'job', 'slot', 'jobreport', 'jobreportmenu', 'queuereport','jobReportMenu'),
+        		 	 'users'=>array('*'),
+        		 ),
+        		 array('allow',  // allow all users to perform 'index' and 'view' actions
+        		 	 'actions'=>array('ajaxQueueReport'),
         		 	 'users'=>array('*'),
         		 ),
         		array('deny', 'users' => array('*')),
@@ -79,35 +83,30 @@ class ReportController extends XController
 	}
 		/* ******************************************************* */
 		
-		public function actionJobReport()
-	{
-		$jobModel = new Job('search');
-		$jobModel->unsetAttributes();  // clear any default values
-		if (isset($_GET['Job'])) {
-			$jobModel->attributes = $_GET['Job'];
-		}
-		
-		$this->render('jobreport', array(
-			'jobModel' => $jobModel,
-		));
-		 if (isset($_GET['pageSize'])) {
-                    Yii::app()->user->setState('pageSize',(int)$_GET['pageSize']);
-                    unset($_GET['pageSize']);
-                }
-                }
-                
-                /* ******************************************************* */
-		
-		public function actionJobReportMenu()
-	{
-		$model = array();
-		$this->render('JobReportMenu');
-		if(isset($_POST['jobreportmenu']))
+	     public function actionAjaxQueueReport()
+	     {
+		 
+		$model = new QueueReportForm;
+		$model->attributes = $_POST; 
+		$model->validate(); 
+		if ($model->hasErrors())
 		{
-			$model->attributes=$_POST['jobreportmenu'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->urlManager->createUrl('report/jobreport', array(10,10)));
-		}
+			$this->setAjaxResponse('error', true); 
+			$this->setAjaxResponse('message', $model->getErrors()); 
+		}else 
+			$this->setAjaxResponse('data',$model->getData()); 
+		
+		echo CJSON::encode($this->ajaxResponse); 	
+		
+	     }
+	     /* ******************************************************* */
+		
+		public function actionQueueReport()
+	{
+		// register the jq plot package 
+		$model = new QueueReportForm;
+
+		$this->render('queueReport',array('model'=>$model));
 	}
+
 }

@@ -10,7 +10,10 @@ SiteReportUserAction.prototype = {
     },
     selectUser:function()
     {
-    	    console.info ($('#user-grid').yiiGridView('getSelection')); 
+    	    ($('#user-grid').yiiGridView('getSelection')); 
+    	    $.fn.yiiGridView.update('user-grid', {
+    	    data: $(this).serialize()});
+    	   
     } 
     
 

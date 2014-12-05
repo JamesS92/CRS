@@ -9,8 +9,8 @@ $qname = $pageno[0];
 $startTime = $pageno[1];
 //$endTime = 1417520914;
 $endTime = $pageno[2];
-$maxCPU = Yii::app()->jobReport->maxCPUTime($startTime, $endTime, $qname);
-$minCPU = Yii::app()->jobReport->minCPUTime($startTime, $endTime, $qname);
+$maxCPU = Yii::app()->jobReport->maxVal($startTime, $endTime, $qname, 'cpu_time');
+$minCPU = Yii::app()->jobReport->minVal($startTime, $endTime, $qname, 'cpu_time');
 //$pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']);
 $this->widget('zii.widgets.grid.CGridView', array(
     'id' => 'job-grid',
