@@ -96,7 +96,8 @@ class ReportController extends XController
 		}else 
 			$this->setAjaxResponse('data',$model->getData()); 
 		
-		echo CJSON::encode($this->ajaxResponse); 	
+		echo CJSON::encode($this->ajaxResponse); 
+		
 		
 	     }
 	     /* ******************************************************* */

@@ -33,6 +33,7 @@ abstract class XController extends CController {
 		$this->layout ="//layouts/column1";
 		
 		Yii::app()->clientScript->registerPackage('bootstrap3');
+		Yii::app()->clientScript->registerPackage('jqplot');
 		
 		// standard ajax response code for non Yii ajax'd operations 
 		$this->_ajaxResponse = new CAttributeCollection(); 

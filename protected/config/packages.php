@@ -19,6 +19,16 @@ return array(
 			 
 		 ),
 		 
+		 'jqplot'=>array(
+			 // pass a baseUrl because we don't need to publish 
+			 'baseUrl'=> '/packages/jqplot',   
+			 'css'    => array( 'jquery.jqplot.css' ),
+			 'js'     => array( 'jquery.jqplot.min.js' , 'excanvas.js' ),
+			 'depends'=> array('crs-base-package')
+			 
+		 ),
+		 
+		 
 		 /*
 		 'fontawesome'=>array(
 			 // pass a baseUrl because we don't need to publish 

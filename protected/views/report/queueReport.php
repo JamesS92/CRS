@@ -67,5 +67,4 @@ $form=$this->beginWidget('CActiveForm', array(
 
 <div id='report_canvas'> 
 
-
 </div> 

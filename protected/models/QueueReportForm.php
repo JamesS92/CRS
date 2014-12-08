@@ -70,7 +70,7 @@ class QueueReportForm extends CFormModel
 		
 		$data = Yii::app()->db->createCommand()
 		 
-			->select('j.id, j.cpu_sum, j.memory_sum, j.io_sum, j.maxVMem_sum')
+			->select('j.id, j.min_time, j.cpu_sum, j.memory_sum, j.io_sum, j.maxVMem_sum')
 			->from('job j')
 			->join('ref_queue rq' , 'rq.id = j.queue_id')
 			->where('j.status_id=:active AND j.min_time > :beginTime AND j.max_time < :endTime AND j.queue_id = :qID', 
@@ -81,15 +81,16 @@ class QueueReportForm extends CFormModel
 						) ) 
 
 			->queryAll(); 
-			print_r($minCPU);
-			print_r('test');
-			print_r($maxCPU);
+			//print_r($minCPU);
+			//print_r($data);
+			//print_r($maxCPU);
 
 		$returnData= array(); 
 		// $data = QueueReportHelper::getData($queue_id,$start,$end);
 		foreach($data as $element)
 		{
 			$returnData[] = array('job'=>$element['id'] , 
+					'start_time'=>$element['min_time'],
 					'cpu_sum'=>ReportHelper::normalise($element['cpu_sum'],$minCPU,$maxCPU),  
 					'io_sum'=>ReportHelper::normalise($element['io_sum'],$minIO,$maxIO),
 					'memory_sum'=>ReportHelper::normalise($element['memory_sum'],$minMemory,$maxMemory),

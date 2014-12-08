@@ -15,7 +15,6 @@
 		 
 			->select('j.id, j.'.$column.'')
 			->from('job j')
-			->join('ref_queue rq' , 'rq.id = j.queue_id')
 			->where('j.status_id=:active AND j.min_time > :beginTime AND j.max_time < :endTime AND j.queue_id = :qID', 
 					array(':active'=>Types::$status['active']['id'],
 						':beginTime'=>$beginTime,
@@ -27,7 +26,7 @@
 			->queryRow(); 
 			
 			$minVal = $value[''.$column.''];
-						print_r($value[''.$column.'']);
+						//print_r($value[''.$column.'']);
 
 
 			return $minVal ; 
@@ -39,8 +38,7 @@
 		 
 			->select('j.id, j.'.$column.'')
 			->from('job j')
-			->join('ref_queue rq' , 'rq.id = j.queue_id')
-			->where('j.status_id=:active AND j.min_time > :beginTime AND j.max_time < :endTime AND rq.name = :qID', 
+			->where('j.status_id=:active AND j.min_time > :beginTime AND j.max_time < :endTime AND j.queue_id = :qID', 
 					array(':active'=>Types::$status['active']['id'],
 						':beginTime'=>$beginTime,
 						':endTime'=>$endTime,
@@ -50,7 +48,7 @@
 			->queryRow(); 
 			
 			$maxVal = $value[''.$column.''];
-			print_r($value[''.$column.'']);
+			//print_r($value[''.$column.'']);
 			return $maxVal ; 
 	}
        
