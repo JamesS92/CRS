@@ -15,7 +15,7 @@
 		 
 			->select('j.id, j.'.$column.'')
 			->from('job j')
-			->where('j.status_id=:active AND j.min_time > :beginTime AND j.max_time < :endTime AND j.queue_id = :qID', 
+			->where('j.status_id=:active AND j.min_time > :beginTime AND j.min_time < :endTime AND j.queue_id = :qID', 
 					array(':active'=>Types::$status['active']['id'],
 						':beginTime'=>$beginTime,
 						':endTime'=>$endTime,
@@ -38,7 +38,7 @@
 		 
 			->select('j.id, j.'.$column.'')
 			->from('job j')
-			->where('j.status_id=:active AND j.min_time > :beginTime AND j.max_time < :endTime AND j.queue_id = :qID', 
+			->where('j.status_id=:active AND j.min_time > :beginTime AND j.min_time < :endTime AND j.queue_id = :qID', 
 					array(':active'=>Types::$status['active']['id'],
 						':beginTime'=>$beginTime,
 						':endTime'=>$endTime,

@@ -11,11 +11,11 @@ class ReportController extends XController
     	    
 		return array(
         		 array('allow',  // allow all users to perform 'index' and 'view' actions
-        		 	 'actions'=>array('user', 'job', 'slot', 'jobreport', 'jobreportmenu', 'queuereport','jobReportMenu'),
+        		 	 'actions'=>array('user', 'job', 'slot', 'jobreport', 'jobreportmenu', 'queuereport','jobReportMenu', 'usageSumReport'),
         		 	 'users'=>array('*'),
         		 ),
         		 array('allow',  // allow all users to perform 'index' and 'view' actions
-        		 	 'actions'=>array('ajaxQueueReport'),
+        		 	 'actions'=>array('ajaxQueueReport', 'ajaxUsageSumReport'),
         		 	 'users'=>array('*'),
         		 ),
         		array('deny', 'users' => array('*')),
@@ -108,6 +108,34 @@ class ReportController extends XController
 		$model = new QueueReportForm;
 
 		$this->render('queueReport',array('model'=>$model));
+	}
+		/* ******************************************************* */
+		
+	     public function actionAjaxUsagesumReport()
+	     {
+		 
+		$model = new UsagesumReportForm;
+		$model->attributes = $_POST; 
+		$model->validate(); 
+		if ($model->hasErrors())
+		{
+			$this->setAjaxResponse('error', true); 
+			$this->setAjaxResponse('message', $model->getErrors()); 
+		}else 
+			$this->setAjaxResponse('data',$model->getData()); 
+		
+		echo CJSON::encode($this->ajaxResponse); 
+		
+		
+	     }
+	     /* ******************************************************* */
+		
+		public function actionUsagesumReport()
+	{
+		// register the jq plot package 
+		$model = new UsagesumReportForm;
+
+		$this->render('usagesumReport',array('model'=>$model));
 	}
 
 }

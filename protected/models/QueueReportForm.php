@@ -53,7 +53,7 @@ class QueueReportForm extends CFormModel
 	/* ************************************************************** */
 	public function getData()
 	{
-		
+		$returnData= array(); 
 		$minMaxValues = array();
 		$minMaxValues = QueueReport::findNormal($this->start_date_timestamp, $this->end_date_timestamp, $this->queue_id);
 		
@@ -67,16 +67,25 @@ class QueueReportForm extends CFormModel
 		$maxVMem = $minMaxValues['maxVMem'];	
 		$beginTime = $minMaxValues['beginTime'];
 		$endTime = $minMaxValues['endTime'];
+		$day = 3600*24;
+		$weeks = 56 * $day;
+		
+		$lowertime = $beginTime;
+				while ($lowertime < $endTime)
+					{
+						if($endTime > ($lowertime + $weeks))
+						$uppertime = $lowertime + $weeks;
+						else $uppertime = $endTime;
 		
 		$data = Yii::app()->db->createCommand()
 		 
 			->select('j.id, j.min_time, j.cpu_sum, j.memory_sum, j.io_sum, j.maxVMem_sum')
 			->from('job j')
 			->join('ref_queue rq' , 'rq.id = j.queue_id')
-			->where('j.status_id=:active AND j.min_time > :beginTime AND j.max_time < :endTime AND j.queue_id = :qID', 
+			->where('j.status_id=:active AND j.min_time > :beginTime AND j.min_time <= :endTime AND j.queue_id = :qID', 
 					array(':active'=>Types::$status['active']['id'],
-						':beginTime'=>$beginTime,
-						':endTime'=>$endTime,
+						':beginTime'=>$lowertime,
+						':endTime'=>$uppertime,
 						':qID'=>$this->queue_id,
 						) ) 
 
@@ -84,8 +93,7 @@ class QueueReportForm extends CFormModel
 			//print_r($minCPU);
 			//print_r($data);
 			//print_r($maxCPU);
-
-		$returnData= array(); 
+		
 		// $data = QueueReportHelper::getData($queue_id,$start,$end);
 		foreach($data as $element)
 		{
@@ -94,10 +102,14 @@ class QueueReportForm extends CFormModel
 					'cpu_sum'=>ReportHelper::normalise($element['cpu_sum'],$minCPU,$maxCPU),  
 					'io_sum'=>ReportHelper::normalise($element['io_sum'],$minIO,$maxIO),
 					'memory_sum'=>ReportHelper::normalise($element['memory_sum'],$minMemory,$maxMemory),
-					'maxVMem_sum'=>ReportHelper::normalise($element['maxVMem_sum'],$minVMem,$maxVMem)
+					'maxVMem_sum'=>ReportHelper::normalise($element['maxVMem_sum'],$minVMem,$maxVMem),
+					'beginTime'=>$beginTime,
+					'endTime'=>$endTime
 					); 
 		} 	
 		//print_r($returnData);
+		$lowertime = $uppertime;
+					}
 		return $returnData; 
 	} 
 	/* ************************************************************** */

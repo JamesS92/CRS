@@ -2,7 +2,7 @@
 <?php
 
 $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'queueReport',
+	'id'=>'usagesumReport',
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
@@ -11,11 +11,20 @@ $form=$this->beginWidget('CActiveForm', array(
 ?>
 <form class="form-horizontal" role="form">
   <div class="form-group">
-    <label class="control-label col-sm-5" for="queue">Queue:</label>
+    <label class="control-label col-sm-5" for="type">Search By Type:</label>
     <div class="col-sm-2">
-<?php echo CHtml::dropDownList('queue_id','',$model->queueList, array('id'=>'user-select')); ?>
+<?php echo CHtml::dropDownList('usage_category','',array('cpu_sum'=>'CPU', 'io_sum'=>'IO', 'memory_sum'=>'Memory', 'maxVMem_sum'=>'VMem')); ?>
     </div>
   </div>
+  
+  <form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="interval">Search Interval:</label>
+    <div class="col-sm-2">
+<?php echo CHtml::dropDownList('search_interval','',array(1=>'Day', 7=>'Week', 28=>'4 Weeks')); ?>
+    </div>
+  </div>
+  
   <div class="form-group">
     <label class="control-label col-sm-5" for="start">Start Date:</label>
     <div class="col-sm-2"> 
