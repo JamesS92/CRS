@@ -55,7 +55,7 @@ class UsagedetailsReport extends CFormModel
 		
 		$data = Yii::app()->db->createCommand()
 		 
-			->select('j.id, u.username, j.min_time, j.name as job_name, rq.name as queue_name, j.cpu_sum, j.io_sum, j.memory_sum, j.maxvmem_sum')
+			->select('j.id, u.username, j.min_time, j.name as job_name, rq.name as queue_name, j.cpu_sum, j.io_sum, j.memory_sum, j.maxvmem_sum, j.wait_time')
 			->from('job j')
 			->join('ref_queue rq' , 'rq.id = j.queue_id')
 			->join('user u' , 'u.id = j.user_id')
@@ -72,6 +72,16 @@ class UsagedetailsReport extends CFormModel
 			for($i=0; $i<count($data); $i++)
 			{
 				$data[$i]['min_time'] = date('d/m/Y h:i:s', $data[$i]['min_time']);
+				/*$t = $data[$i]['wait_time'];
+				$h = ($t/3600);
+				$m = ($t/60%60);
+				$s = $t%60;
+				$data[$i]['wait_time'] = sprintf('%02d:%02d:%02d', $h, $m, $s);
+				/*if ($h>24) {
+					$d = $h/24;
+					$h = $h%24;
+					$data[$i]['wait_time'] = sprintf('%02d %02d:%02d:%02d', $d, $h, $m, $s);
+				}*/
 			}
 
 			return $data;

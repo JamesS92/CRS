@@ -13,7 +13,7 @@ $form=$this->beginWidget('CActiveForm', array(
   <div class="form-group">
     <label class="control-label col-sm-5" for="type">Search By Type:</label>
     <div class="col-sm-2">
-<?php echo CHtml::dropDownList('usage_category','',array('cpu_sum'=>'CPU', 'io_sum'=>'IO', 'memory_sum'=>'Memory', 'maxVMem_sum'=>'VMem')); ?>
+<?php echo CHtml::dropDownList('usage_category','',array('cpu_sum'=>'CPU', 'io_sum'=>'IO', 'memory_sum'=>'Memory', 'maxVMem_sum'=>'VMem', 'wait_time'=>'Wait Time')); ?>
     </div>
   </div>
   

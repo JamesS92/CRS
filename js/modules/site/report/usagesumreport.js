@@ -113,6 +113,7 @@ SiteReportUsagesumreportAction.prototype = {
     	    	    	     var cell7 = row.insertCell(6);
     	    	    	     var cell8 = row.insertCell(7);
     	    	    	     var cell9 = row.insertCell(8);
+    	    	    	     var cell10 = row.insertCell(9);
     	    	    	     
     	    	    	     cell1.innerHTML = "Job No";
     	    	    	     cell2.innerHTML = "Job Name";
@@ -123,6 +124,7 @@ SiteReportUsagesumreportAction.prototype = {
     	    	    	     cell7.innerHTML = "IO Usage";
     	    	    	     cell8.innerHTML = "Memory Usage";
     	    	    	     cell9.innerHTML = "MaxVMem Usage";
+    	    	    	     cell10.innerHTML = "Wait Time";
     	    	    	     
 
     	    	    	    $.post("/report/ajaxUsagedetailsReport",detailsForm).done(
@@ -142,6 +144,7 @@ SiteReportUsagesumreportAction.prototype = {
 					var cell7 = row.insertCell(6);
 					var cell8 = row.insertCell(7);
 					var cell9 = row.insertCell(8);
+					var cell10 = row.insertCell(9);
 					cell1.innerHTML = returnData.data[i].id;
     	    	    	     		cell2.innerHTML = returnData.data[i].job_name;
     	    	    	     		cell3.innerHTML = returnData.data[i].username;
@@ -151,6 +154,7 @@ SiteReportUsagesumreportAction.prototype = {
     	    	    	     		cell7.innerHTML = returnData.data[i].io_sum;
     	    	    	     		cell8.innerHTML = returnData.data[i].memory_sum;
     	    	    	     		cell9.innerHTML = returnData.data[i].maxvmem_sum;
+    	    	    	     		cell10.innerHTML = returnData.data[i].wait_time;
     	    	    		}
     	    	    			
     	    	    		spinner.stop();
