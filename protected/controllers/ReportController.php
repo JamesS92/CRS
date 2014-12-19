@@ -15,7 +15,7 @@ class ReportController extends XController
         		 	 'users'=>array('*'),
         		 ),
         		 array('allow',  // allow all users to perform 'index' and 'view' actions
-        		 	 'actions'=>array('ajaxQueueReport', 'ajaxUsageSumReport'),
+        		 	 'actions'=>array('ajaxQueueReport', 'ajaxUsageSumReport', 'ajaxUsagedetailsReport'),
         		 	 'users'=>array('*'),
         		 ),
         		array('deny', 'users' => array('*')),
@@ -136,6 +136,24 @@ class ReportController extends XController
 		$model = new UsagesumReportForm;
 
 		$this->render('usagesumReport',array('model'=>$model));
+	}
+	/* ******************************************************* */
+		
+		public function actionAjaxUsagedetailsReport()
+	{
+		$model = new UsagedetailsReport;
+		$model->attributes = $_POST; 
+		$model->validate(); 
+		if ($model->hasErrors())
+		{
+			$this->setAjaxResponse('error', true); 
+			$this->setAjaxResponse('message', $model->getErrors()); 
+		}else 
+			$this->setAjaxResponse('data',$model->getDetails()); 
+			
+		
+			
+		echo CJSON::encode($this->ajaxResponse); 
 	}
 
 }

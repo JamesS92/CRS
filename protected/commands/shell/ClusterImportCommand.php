@@ -15,8 +15,8 @@ class ClusterImportCommand extends CConsoleCommand
     	    
     	  	 foreach ($dir as $currentDir)
     	  	 {
-    	  	 	 print_r ($currentDir );
-    	  	 	 print_r (' ');
+    	  	 	 //print_r ($currentDir );
+    	  	 	 //print_r (' ');
     	  	 	 $thisDir = $this->dataDir . DIRECTORY_SEPARATOR . $currentDir;
     	  	 	 $file = array_diff(scandir($thisDir), array('..', '.'));
     	  	 	 //print_r ($file);
@@ -64,6 +64,7 @@ class ClusterImportCommand extends CConsoleCommand
 	    $job = array();
 	    $qtime = 0;
 	    $mintime = 0;
+	    $wait = 0;
 	    $maxtime = 0;
 	    $duration = 0;
 	    $cpu = 0;
@@ -195,6 +196,8 @@ class ClusterImportCommand extends CConsoleCommand
 			$job['max_time'] = 0;
 		
 		$wait = $mintime - $qtime;
+		if ($mintime < $qtime) $wait = 0;
+		elseif ($wait > 130000000) $wait = 0;
 		$job['wait_time'] = $wait;
 		$duration = $maxtime - $mintime;
 		$job['duration'] = $duration;

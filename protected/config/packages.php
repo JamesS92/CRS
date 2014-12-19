@@ -23,10 +23,26 @@ return array(
 			 // pass a baseUrl because we don't need to publish 
 			 'baseUrl'=> '/packages/jqplot',   
 			 'css'    => array( 'jquery.jqplot.css' ),
-			 'js'     => array( 'jquery.jqplot.min.js' , 'excanvas.js' ),
+			 'js'     => array( 'jquery.jqplot.min.js' , 'excanvas.js', 'plugins/jqplot.highlighter.min.js', 'plugins/jqplot.dateAxisRenderer.min.js', 'plugins/jqplot.cursor.min.js', 'plugins/jqplot.logAxisRenderer.js' , 'plugins/spin.js' , 'plugins/spin.min.js' ),
 			 'depends'=> array('crs-base-package')
 			 
 		 ),
+		 
+		 'spinner'=>array(
+			 // pass a baseUrl because we don't need to publish 
+			 'baseUrl'=> '/packages/spinner',   
+			 'js'     => array( 'spin.js' , 'spin.min.js' ),
+			 'depends'=> array('crs-base-package')
+			 
+		 ),
+		 
+		 /*'jqplotplugins'=>array(
+			 // pass a baseUrl because we don't need to publish 
+			 'baseUrl'=> '/packages/jqplot/plugins',   
+			 'js'     => array( 'jqplot.highlighter.min.js' ),
+			 'depends'=> array('jqplot')
+			 
+		 ),*/
 		 
 		 
 		 /*

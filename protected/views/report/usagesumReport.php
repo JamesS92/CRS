@@ -77,3 +77,9 @@ $form=$this->beginWidget('CActiveForm', array(
 <div id='report_canvas'> 
 
 </div> 
+
+<table style="width:100%" id="detailsTable">
+  
+  
+</table>
+

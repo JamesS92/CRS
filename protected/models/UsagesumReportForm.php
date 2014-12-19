@@ -14,6 +14,10 @@ class UsagesumReportForm extends CFormModel
 	public $end_date;
 	public $end_date_timestamp;
 	
+	public $returnTime;
+	public $qID;
+	public $returnInterval;
+	
 	/* ************************************************************** */
 	/**
 	 * Declares the validation rules.
@@ -55,12 +59,14 @@ class UsagesumReportForm extends CFormModel
 		$endTime = $this->end_date_timestamp / 1000;
 		$lowTime = $beginTime;
 		$day = 3600*24;
-		$weeks = 56 * $day;
+		$weeks = 28 * $day;
 		$interval = $day*$this->search_interval;
 		$returnData= array(); 
 		$maxUsage = 0;
 		$counter = 0;
 		$totaljobs = 0;
+		
+		$endTime = $endTime + $day;
 		/* ************************************************************** */
 		/*
 		while ($lowTime <= ($endTime - $interval))
@@ -159,8 +165,8 @@ class UsagesumReportForm extends CFormModel
 				else break;
 			}
 			$returnData[$counter]["usage_total_$i"] = $totalUsage;
-			$returnData[$counter]['jobs'] = $jobs;
-			$returnData[$counter]['totaljobs'] = $totaljobs;
+			//$returnData[$counter]['jobs'] = $jobs;
+			//$returnData[$counter]['totaljobs'] = $totaljobs;
 			if ($maxUsage < $totalUsage) $maxUsage = $totalUsage;
 			
 			$returnData[$counter]['start_time'] = $midTime;
@@ -230,10 +236,12 @@ class UsagesumReportForm extends CFormModel
 		$returnData[0]['endTime'] = $endTime;
 		$returnData[0]['maxY'] = $maxUsage;
 		$returnData[0]['category'] = $this->usage_category;
+		$returnData[0]['interval'] = $interval;
 		//print_r($returnData);
 		return $returnData; 
 	} 
 	/* ************************************************************** */
+
 	
 	
 	
