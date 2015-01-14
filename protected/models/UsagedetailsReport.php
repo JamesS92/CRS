@@ -72,16 +72,16 @@ class UsagedetailsReport extends CFormModel
 			for($i=0; $i<count($data); $i++)
 			{
 				$data[$i]['min_time'] = date('d/m/Y h:i:s', $data[$i]['min_time']);
-				/*$t = $data[$i]['wait_time'];
+				$t = $data[$i]['wait_time'];
 				$h = ($t/3600);
 				$m = ($t/60%60);
 				$s = $t%60;
 				$data[$i]['wait_time'] = sprintf('%02d:%02d:%02d', $h, $m, $s);
-				/*if ($h>24) {
+				if ($h>24) {
 					$d = $h/24;
 					$h = $h%24;
-					$data[$i]['wait_time'] = sprintf('%02d %02d:%02d:%02d', $d, $h, $m, $s);
-				}*/
+					$data[$i]['wait_time'] = sprintf('%2dd %02d:%02d:%02d', $d, $h, $m, $s);
+				}
 			}
 
 			return $data;

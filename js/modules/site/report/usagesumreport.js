@@ -20,9 +20,10 @@ SiteReportUsagesumreportAction.prototype = {
     	    $.post("/report/ajaxUsagesumReport",formData).done(
     	    	    	function(returnData){
     	    	    		returnData = jQuery.parseJSON( returnData );
-    	    	    		if (returnData.error)
+    	    	    		if (returnData.error){
     	    	    			alert('fields not full'); 
-    	    	    		
+    	    	    			spinner.stop();
+    	    	    		}
     	    	   
     	    	    		
     	    	    		 var usage1 = [];
@@ -130,9 +131,11 @@ SiteReportUsagesumreportAction.prototype = {
     	    	    	    $.post("/report/ajaxUsagedetailsReport",detailsForm).done(
     	    	    	function(returnData){
     	    	    		returnData = jQuery.parseJSON( returnData );
-    	    	    		if (returnData.error)
+    	    	    		if (returnData.error){
     	    	    			alert('fields not full'); 
-    	    	    		
+    	    	    			spinner.stop();
+    	    	    		}
+    	    	    			
     	    	    		for (i = 0; i < returnData.data.length; i++) {
     	    	    			var row = table.insertRow(i+1);
     	    	    			var cell1 = row.insertCell(0);

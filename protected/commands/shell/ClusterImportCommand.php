@@ -25,6 +25,7 @@ class ClusterImportCommand extends CConsoleCommand
     	    	 		//print_r ($chosenFile);
     	    	 		if (filesize($thisDir .'/'. $chosenFile) > 0)
     	    	 		$this->parseJobFile( $thisDir , $chosenFile); 
+    	    	 		else $this->parseFailedJob(basename("$chosenFile", ".txt.");
     	    	 	}
     	    	 }
     	    
@@ -53,6 +54,31 @@ class ClusterImportCommand extends CConsoleCommand
     } 
     
     /* ******************************************************************** */
+    private function parseFailedJob($jobNo)
+    {
+    	    $jobModel = Job::model()->find('job_no=:job_no', array(':job_no'=>$jobNo));
+    	    
+    	    if ($jobModel===null)
+    	    {
+    	    	    $jobModel = new Job; 
+    	    	    $jobModel->job_no = $jobNo;
+    	    	    $jobModel->queue_id = $queue_id;
+    	    	    $jobModel->user_id = 'Unknown'; 
+    	    	    $jobModel->name = 'Unknown';
+    	    	   // print_r($jobModel); 
+    	    	    //$jobModel->save();
+    	    	    
+    	    	    if ($jobModel->save())
+    	    	    {
+    	    	    } else 
+    	    	    	if ($jobModel->hasErrors())
+    	    	    	{
+    	    	    		print_r($job['jobnumber']);
+    	    	    		print_r($jobModel->getErrors()); 
+    	    	    	}
+    	    }
+    }
+    	    
     /* ******************************************************************** */
     /* ******************************************************************** */
     
