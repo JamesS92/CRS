@@ -5,19 +5,62 @@ class ClusterImportCommand extends CConsoleCommand
 	public $seperator = "=============================================================="; 
 	public $dataDir = "/cubric/users/sapwe/Sites/CRS/import/jobinfo/"; 
 	
+	/* ******************************************************************** */
 	
     public function run($args)
     {
-    	   // $this->parseJobFile( "/cubric/users/sapwe/Sites/CRS/import/jobinfo/1" , '707.txt');
-    	    $this->initMachines(); 
-    	    $dir = array_diff(scandir($this->dataDir), array('..', '.'));
-    	     print_r ($dir);
+    	   $this->initMachines(); 
+    	   //$this->initUsers();
+    	   $this->pullJob(); 
+    	   $this->checkRunningJobs();
+    }
+     /* ******************************************************************** */
+     /* ******************************************************************** */
+     private function pullJob()
+    {
+    	    $value = Yii::app()->db->createCommand()
+		 
+			->select('j.job_no')
+			->from('job j')
+			->order('j.job_no DESC')
+
+			->queryRow(); 
+			
+
+	    $firstJob = $value[0] + 1;
+    	    
+    	    $job=$firstJob;
+    	    
+    	    $dir = 0;
+    	    $tmpDir = system('mktemp -d');
+    	     print_r ('tempfolder');
+    	    system("mkdir $tmpDir/$dir");
+    	    
+    	    $counter = 0;
+    	    while($job<$lastJob){
+    	    	    $counter++;
+    	    	    system("qacct -j $job > $tmpDir/$dir/$job.txt");
+    	    	    if($counter>=1000){
+    	    	    	    $dir++;
+    	    	    	    $counter = 0;
+    	    	    	    system("mkdir $tmpDir/$dir");
+    	    	    }
+    	    	    $job++;
+    	    }
+    	    $this->findJobFile($tmpDir);
+    }
+     /* ******************************************************************** */
+     private function findJobFile($tmpDir)
+    {
+    	    
+    	    
+    	      $dir = array_diff(scandir($tmpDir), array('..', '.'));
     	    
     	  	 foreach ($dir as $currentDir)
     	  	 {
-    	  	 	 //print_r ($currentDir );
+    	  	 	 print_r ($currentDir );
     	  	 	 //print_r (' ');
-    	  	 	 $thisDir = $this->dataDir . DIRECTORY_SEPARATOR . $currentDir;
+    	  	 	 $thisDir = $tmpDir . DIRECTORY_SEPARATOR . $currentDir;
     	  	 	 $file = array_diff(scandir($thisDir), array('..', '.'));
     	  	 	 //print_r ($file);
     	    	 	foreach ($file as $chosenFile) 
@@ -25,13 +68,13 @@ class ClusterImportCommand extends CConsoleCommand
     	    	 		//print_r ($chosenFile);
     	    	 		if (filesize($thisDir .'/'. $chosenFile) > 0)
     	    	 		$this->parseJobFile( $thisDir , $chosenFile); 
-    	    	 		else $this->parseFailedJob(basename("$chosenFile", ".txt.");
+    	    	 		else $this->parseFailedJob(basename("$chosenFile", ".txt"));
     	    	 	}
     	    	 }
-    	    
+    	    	 
+    	    	 
     }
-    
-    
+    /* ******************************************************************** */
     /* ******************************************************************** */
     private function initMachines()
     {
@@ -51,8 +94,10 @@ class ClusterImportCommand extends CConsoleCommand
     	    	    	     }
     	    	    }
     	    }
+    	     print_r ('initMachines');
     } 
     
+    /* ******************************************************************** */
     /* ******************************************************************** */
     private function parseFailedJob($jobNo)
     {
@@ -62,9 +107,10 @@ class ClusterImportCommand extends CConsoleCommand
     	    {
     	    	    $jobModel = new Job; 
     	    	    $jobModel->job_no = $jobNo;
-    	    	    $jobModel->queue_id = $queue_id;
-    	    	    $jobModel->user_id = 'Unknown'; 
+    	    	    $jobModel->queue_id = 'Unknown';
+    	    	    $jobModel->user_id = $this->getUserId('Unknown');
     	    	    $jobModel->name = 'Unknown';
+    	    	    $jobModel->status_id = 5;
     	    	   // print_r($jobModel); 
     	    	    //$jobModel->save();
     	    	    
@@ -311,6 +357,7 @@ class ClusterImportCommand extends CConsoleCommand
     	    
     }
     /* ******************************************************************** */
+    /* ******************************************************************** */
     private function processQueue($queue)
     {
     	     $queueModel = RefQueue::model()->find('name=:qname', array(':qname'=>$queue)); 
@@ -323,6 +370,13 @@ class ClusterImportCommand extends CConsoleCommand
     	    }
     	    return $queueModel->id; 
     } 
+    /* ******************************************************************** */
+    /* ******************************************************************** */
+    private function initUsers()
+    {
+    	    
+    }
+    /* ******************************************************************** */
     /* ******************************************************************** */
     private function getUserId($username)
     {
@@ -341,6 +395,7 @@ class ClusterImportCommand extends CConsoleCommand
     	    
     }
     /* ******************************************************************** */
+    /* ******************************************************************** */
     private function processMachine($machine)
     {
     	    $machineModel = RefMachine::model()->find('name=:hostname', array(':hostname'=>$machine)); 
@@ -356,6 +411,30 @@ class ClusterImportCommand extends CConsoleCommand
     	    
     	    		
     } 
+    /* ******************************************************************** */
+    /* ******************************************************************** */
+    private function checkRunningJobs()
+    {
+    	    $tmpDir = system('mktemp -d');
+    	    $value = Yii::app()->db->createCommand()
+		 
+			->select('j.job_no, j.create_time')
+			->from('job j')
+			->where('j.status_id=:unknown',
+				array(':unknown'=>Types::$status['unknown']['id'],)
+				)
+
+			->queryAll(); 
+			
+			foreach($value as $runningJob){
+				 system("qacct -j ".$runningJob['job_no']." > $tmpDir/0/$runningJob.txt");
+				 print_r ('runningJob');
+				 	  print_r ($runningJob);
+				 }
+			
+			
+			$this->findJobFile($tmpDir);
+    }
     /* ******************************************************************** */
     /* ******************************************************************** */
     
