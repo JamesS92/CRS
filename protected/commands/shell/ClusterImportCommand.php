@@ -385,7 +385,7 @@ class ClusterImportCommand extends CConsoleCommand
     	    	    return $userModel->id;
     	    else 
     	    {
-    	    	$userModel = new User;
+    	    	    $userModel = new User;
     	    	    $userModel->username = $username;
     	    	    $userModel->firstname = $username;
     	    	    $userModel->save(); 
