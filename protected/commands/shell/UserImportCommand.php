@@ -8,7 +8,9 @@ class UserImportCommand extends CConsoleCommand
 	public $jobNo = 0;
     public function run($args)
     {
-    	    //lscubricusers | awk '{print $3}' 
+    	    //lscubricusers | awk '{print $3}'
+    	   //  qstat -u '*' | awk '{ print $1 }' | sort -u  | tail -n 2 | head -n 1 
+
     	    $file = sprintf('%s/%s', $this->dataDir , $this->fileName); 
 	    $data = file_get_contents( $file );
 	    $job = array();
